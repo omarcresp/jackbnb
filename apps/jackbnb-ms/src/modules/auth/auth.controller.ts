@@ -23,11 +23,6 @@ export class AuthController {
 
   constructor(private readonly authService: AuthService) {}
 
-  @Get()
-  hello() {
-    return 'do you want to be my friend?';
-  }
-
   @Post('register')
   createUser(@Body() body: User): Promise<User> {
     const password = hashSync(body.password + this.peeper, 12);
