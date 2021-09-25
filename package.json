@@ -1,6 +1,10 @@
 {
-  "name": "root",
+  "name": "jackbnb",
   "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+ ],
   "devDependencies": {
     "lerna": "^4.0.0"
   }
