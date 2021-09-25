@@ -8,7 +8,7 @@ import { eventContext } from 'aws-serverless-express/middleware';
 import { NestFactory } from '@nestjs/core';
 import { ExpressAdapter } from '@nestjs/platform-express';
 
-import { AllExceptionsFilter } from './allExceptionsFilter';
+import { AllExceptionsFilter } from './filters/allExceptionsFilter';
 import { AppModule } from './app.module';
 
 const binaryMimeTypes: string[] = [];
