@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+
 import { CreatePropertyDto } from './dto/create-property.dto';
 import { UpdatePropertyDto } from './dto/update-property.dto';
 
@@ -12,15 +13,15 @@ export class PropertiesService {
     return `This action returns all properties`;
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} property`;
   }
 
-  update(id: number, updatePropertyDto: UpdatePropertyDto) {
+  update(id: string, updatePropertyDto: UpdatePropertyDto) {
     return `This action updates a #${id} property`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} property`;
   }
 }
