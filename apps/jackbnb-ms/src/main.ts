@@ -6,6 +6,7 @@ import { proxy, createServer } from 'aws-serverless-express';
 import { eventContext } from 'aws-serverless-express/middleware';
 
 import { NestFactory } from '@nestjs/core';
+import { ValidationPipe } from '@nestjs/common';
 import { ExpressAdapter } from '@nestjs/platform-express';
 
 import { AllExceptionsFilter } from './filters/allExceptionsFilter';
@@ -22,6 +23,11 @@ export async function bootstrapServer(): Promise<Server> {
 
   nestApp.setGlobalPrefix('api/v1');
   nestApp.useGlobalFilters(new AllExceptionsFilter());
+  nestApp.useGlobalPipes(new ValidationPipe({
+    transform: true,
+    forbidNonWhitelisted: true,
+    disableErrorMessages: process.env.IS_OFFLINE !== 'true',
+  }));
 
   nestApp.use(eventContext());
   nestApp.use(cookieParser());

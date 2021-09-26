@@ -35,13 +35,18 @@ export class AllExceptionsFilter implements ExceptionFilter {
       });
     };
 
-    if (
-      typeof exception.message === 'string' &&
-      typeof exception.name === 'string'
-    ) {
-      responseMessage(exception.name, exception.message);
-    } else {
-      responseMessage('Error', exception);
+    const exceptionResponse = exception.getResponse();
+
+    if (exceptionResponse) {
+      console.log(exceptionResponse);
+      response.status(status).json(exceptionResponse);
+
+      return;
     }
+
+    responseMessage(
+      exception.name || 'Internal Error',
+      exception.message || exception
+    );
   }
 }

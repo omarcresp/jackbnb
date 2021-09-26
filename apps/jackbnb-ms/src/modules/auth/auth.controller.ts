@@ -17,7 +17,7 @@ import { LocalAuthenticationGuard } from './guards/localAuthentication.guard';
 import { RequestWithUser } from './auth.interface';
 import { JwtAuthenticationGuard } from './guards/jwtAuthentication.guard';
 
-@Controller({ path: 'auth' })
+@Controller('auth')
 export class AuthController {
   private readonly peeper = process.env.API_TOKEN;
 
