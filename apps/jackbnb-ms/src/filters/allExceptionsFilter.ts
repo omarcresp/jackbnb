@@ -20,7 +20,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
         : HttpStatus.INTERNAL_SERVER_ERROR;
 
     const responseMessage = (type: string, message: unknown) => {
-      console.log({
+      console.error({
         statusCode: status,
         path: request.url,
         errorType: type,
@@ -38,14 +38,14 @@ export class AllExceptionsFilter implements ExceptionFilter {
     const exceptionResponse = exception.getResponse();
 
     if (exceptionResponse) {
-      console.log(exceptionResponse);
+      console.error(exceptionResponse);
       response.status(status).json(exceptionResponse);
 
       return;
     }
 
     responseMessage(
-      exception.name || 'Internal Error',
+      exception.name || 'Internal Server Error',
       exception.message || exception
     );
   }

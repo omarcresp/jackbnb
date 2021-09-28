@@ -5,7 +5,6 @@ import * as normalize from 'normalize-mongoose';
 
 import { AuthModule } from './modules/auth/auth.module';
 import { PropertiesModule } from './modules/properties/properties.module';
-import { AmenitiesModule } from './modules/amenities/amenities.module';
 
 @Module({
   imports: [
@@ -18,7 +17,6 @@ import { AmenitiesModule } from './modules/amenities/amenities.module';
     }),
     AuthModule,
     PropertiesModule,
-    AmenitiesModule,
   ],
 })
 export class AppModule {}
