@@ -49,5 +49,7 @@ export const handler: ProxyHandler = async (event, context) => {
     console.log('CACHE SERVER!')
   }
 
+  console.log('process.env', process.env)
+
   return proxy(cacheServer, event, context, 'PROMISE').promise;
 };
