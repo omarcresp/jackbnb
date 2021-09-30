@@ -35,7 +35,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
       });
     };
 
-    const exceptionResponse = exception.getResponse();
+    const exceptionResponse = exception?.getResponse();
 
     if (exceptionResponse) {
       console.error(exceptionResponse);

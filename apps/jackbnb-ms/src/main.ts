@@ -14,6 +14,8 @@ import { AppModule } from './app.module';
 
 const binaryMimeTypes: string[] = [];
 
+let cacheServer: Server;
+
 export async function bootstrapServer(): Promise<Server> {
   const expressApp = express();
   const nestApp = await NestFactory.create(
@@ -38,10 +40,14 @@ export async function bootstrapServer(): Promise<Server> {
 }
 
 export const handler: ProxyHandler = async (event, context) => {
-  const server = await bootstrapServer();
-  const response = await proxy(server, event, context, 'PROMISE').promise;
+  if (!cacheServer) {
+    console.log('[Nest] OMAR TEST =====================================')
+    console.log('no cache :(')
+    cacheServer = await bootstrapServer();
+  } else {
+    console.log('[Nest] OMAR TEST =====================================')
+    console.log('CACHE SERVER!')
+  }
 
-  server.close();
-
-  return response;
+  return proxy(cacheServer, event, context, 'PROMISE').promise;
 };

@@ -34,4 +34,5 @@ lerna-debug.log*
 
 # Environment
 .aws
+.serverless
 .env*

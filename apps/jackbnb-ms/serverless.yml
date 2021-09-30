@@ -19,8 +19,8 @@ provider:
   runtime: nodejs14.x
   lambdaHashingVersion: 20201221
   environment:
-    MONGO_URL: ${env:MONGO_URL, 'mongodb://127.0.0.1:27017/jackbnb-ms'}
-    API_TOKEN: ${env:API_TOKEN, 'jackbnb-dev-token'}
+    MONGO_URL: ${env:MONGO_URL}
+    API_TOKEN: ${env:API_TOKEN}
 
 functions:
   jackbnb-rest-v1:
