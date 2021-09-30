@@ -2,10 +2,11 @@ service: jackbnb-ms
 useDotenv: true
 
 plugins:
-  - 'serverless-plugin-typescript'
+  - serverless-plugin-typescript
   - serverless-plugin-common-excludes
   - serverless-plugin-include-dependencies
   - serverless-offline
+  - serverless-plugin-warmup
 
 package:
   excludeDevDependencies: false

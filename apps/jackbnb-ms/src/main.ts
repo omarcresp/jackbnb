@@ -1,26 +1,23 @@
-import * as express from 'express';
+import fastify, { FastifyInstance, FastifyServerOptions } from 'fastify';
 import * as cookieParser from 'cookie-parser';
-import { Server } from 'http';
+
 import { ProxyHandler } from 'aws-lambda';
-import { proxy, createServer } from 'aws-serverless-express';
-import { eventContext } from 'aws-serverless-express/middleware';
+import { proxy } from 'aws-serverless-fastify';
 
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
-import { ExpressAdapter } from '@nestjs/platform-express';
+import { FastifyAdapter } from '@nestjs/platform-fastify';
 
 import { AllExceptionsFilter } from './filters/allExceptionsFilter';
 import { AppModule } from './app.module';
 
-const binaryMimeTypes: string[] = [];
+let cacheServer: FastifyInstance;
 
-let cacheServer: Server;
-
-export async function bootstrapServer(): Promise<Server> {
-  const expressApp = express();
+export async function bootstrapServer(): Promise<FastifyInstance> {
+  const instance = fastify();
   const nestApp = await NestFactory.create(
     AppModule,
-    new ExpressAdapter(expressApp),
+    new FastifyAdapter(instance),
   );
 
   nestApp.setGlobalPrefix('api/v1');
@@ -31,12 +28,11 @@ export async function bootstrapServer(): Promise<Server> {
     disableErrorMessages: process.env.IS_OFFLINE !== 'true',
   }));
 
-  nestApp.use(eventContext());
   nestApp.use(cookieParser());
 
   await nestApp.init();
 
-  return createServer(expressApp, undefined, binaryMimeTypes);
+  return instance;
 }
 
 export const handler: ProxyHandler = async (event, context) => {
@@ -44,5 +40,5 @@ export const handler: ProxyHandler = async (event, context) => {
     cacheServer = await bootstrapServer();
   }
 
-  return proxy(cacheServer, event, context, 'PROMISE').promise;
+  return proxy(cacheServer, event, context);
 };
