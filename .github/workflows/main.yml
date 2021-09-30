@@ -2,6 +2,9 @@ name: Deploy
 on:
   push:
     branches: [ main ]
+env:
+  MONGO_URL: ${{ secrets.MONGO_URL }}
+  API_TOKEN: ${{ secrets.API_TOKEN }}
 jobs:
   build:
     runs-on: ubuntu-latest

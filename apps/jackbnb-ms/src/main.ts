@@ -40,16 +40,19 @@ export async function bootstrapServer(): Promise<Server> {
 }
 
 export const handler: ProxyHandler = async (event, context) => {
+  console.log('process.env', process.env)
+
   if (!cacheServer) {
     console.log('[Nest] OMAR TEST =====================================')
     console.log('no cache :(')
     cacheServer = await bootstrapServer();
+
+    console.log('cache created:', !!cacheServer);
+
   } else {
     console.log('[Nest] OMAR TEST =====================================')
     console.log('CACHE SERVER!')
   }
-
-  console.log('process.env', process.env)
 
   return proxy(cacheServer, event, context, 'PROMISE').promise;
 };
