@@ -10,9 +10,8 @@ jobs:
       - uses: actions/setup-node@v2.4.1
         with:
           node-version: 14.x
-      - name: test
-        run: node -v
-      - uses: m19c/action-lerna@1.0.0
+      - name: install lerna
+        run: npm i -g lerna
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
