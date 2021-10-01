@@ -6,11 +6,26 @@ import * as normalize from 'normalize-mongoose';
 import { AuthModule } from './modules/auth/auth.module';
 import { PropertiesModule } from './modules/properties/properties.module';
 
-console.log('process.env', process.env)
+
+const {
+  AWS_ACCESS_KEY_ID,
+  AWS_SECRET_ACCESS_KEY,
+  AWS_SESSION_TOKEN,
+  MONGO_CLUSTER,
+  MONGO_DATABASE,
+  MONGO_PARAMS,
+  IS_OFFLINE,
+  MONGO_URL,
+} = process.env;
+
+const awsUser = `${AWS_ACCESS_KEY_ID}:${AWS_SECRET_ACCESS_KEY}`
+const mongoUri = `${MONGO_CLUSTER}/${MONGO_DATABASE}?${MONGO_PARAMS}`
+const awsUrl = `mongodb+srv://${awsUser}@${mongoUri}:${AWS_SESSION_TOKEN}`;
+const mongoUrl = IS_OFFLINE === 'true' ? MONGO_URL : awsUrl;
 
 @Module({
   imports: [
-    MongooseModule.forRoot(process.env.MONGO_URL, {
+    MongooseModule.forRoot(mongoUrl, {
       connectionFactory(connection) {
         connection.plugin(normalize);
 
