@@ -20,11 +20,11 @@ provider:
   runtime: nodejs14.x
   lambdaHashingVersion: 20201221
   environment:
-    MONGO_URL: ${env:MONGO_URL}
+    MONGO_URL: ${env:MONGO_URL, ''}
     API_TOKEN: ${env:API_TOKEN}
-    MONGO_CLUSTER: ${env:MONGO_CLUSTER}
-    MONGO_DATABASE: ${env:MONGO_DATABASE}
-    MONGO_PARAMS: ${env:MONGO_PARAMS}
+    MONGO_CLUSTER: ${env:MONGO_CLUSTER, ''}
+    MONGO_DATABASE: ${env:MONGO_DATABASE, ''}
+    MONGO_PARAMS: ${env:MONGO_PARAMS, ''}
 
 functions:
   jackbnb-rest-v1:
