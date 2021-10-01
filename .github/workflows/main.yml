@@ -3,9 +3,7 @@ on:
   push:
     branches: [ main ]
 env:
-  MONGO_CLUSTER: ${{ secrets.MONGO_CLUSTER }}
-  MONGO_DATABASE: ${{ secrets.MONGO_DATABASE }}
-  MONGO_PARAMS: ${{ secrets.MONGO_PARAMS }}
+  MONGO_URL: ${{ secrets.MONGO_URL }}
   API_TOKEN: ${{ secrets.API_TOKEN }}
 jobs:
   build:
