@@ -20,6 +20,7 @@ console.log('process.env.MONGO_URL', process.env.MONGO_URL);
       useFindAndModify: false,
       useUnifiedTopology: true,
       useCreateIndex: true,
+      retryAttempts: 1,
     }),
     AuthModule,
     PropertiesModule,
