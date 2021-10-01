@@ -25,6 +25,7 @@ export class AuthController {
 
   @Post('register')
   createUser(@Body() body: User): Promise<User> {
+    console.log('start register');
     const password = hashSync(body.password + this.peeper, 12);
 
     return this.authService.createUser({
