@@ -22,6 +22,8 @@ const mongoUri = `${MONGO_CLUSTER}.mongodb.net/${MONGO_DATABASE}?${MONGO_PARAMS}
 const awsUrl = `mongodb+srv://${awsUser}@${mongoUri}:${AWS_SESSION_TOKEN}`;
 const mongoUrl = IS_OFFLINE === 'true' ? MONGO_URL : awsUrl;
 
+console.log('mongoUrl', mongoUrl);
+
 @Module({
   imports: [
     MongooseModule.forRoot(mongoUrl, {
