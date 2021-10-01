@@ -31,6 +31,7 @@
     "@nestjs/platform-fastify": "^8.0.9",
     "aws-lambda": "^1.0.6",
     "aws-serverless-fastify": "^1.0.27",
+    "aws4": "^1.11.0",
     "bcrypt": "^5.0.1",
     "class-transformer": "^0.4.0",
     "class-validator": "^0.13.1",
