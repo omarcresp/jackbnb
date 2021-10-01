@@ -17,9 +17,7 @@ console.log('process.env.MONGO_URL', process.env.MONGO_URL);
         return connection;
       },
       useNewUrlParser: true,
-      useFindAndModify: false,
       useUnifiedTopology: true,
-      useCreateIndex: true,
       retryAttempts: 1,
     }),
     AuthModule,
