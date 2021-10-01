@@ -29,6 +29,11 @@ provider:
 functions:
   jackbnb-rest-v1:
     handler: src/main.handler
+    vpc:
+      securityGroupIds:
+        - sg-0330789b86e348c2c
+      subnetIds:
+        - subnet-0a0d4ec631714ef34
     events:
       - http:
           path: api/v1/{proxy+}
