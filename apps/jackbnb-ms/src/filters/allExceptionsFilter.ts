@@ -6,18 +6,23 @@ import {
   HttpStatus,
   InternalServerErrorException,
 } from '@nestjs/common';
+import { FastifyReply, FastifyRequest } from "fastify";
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
   catch(exception: InternalServerErrorException, host: ArgumentsHost): void {
     const ctx = host.switchToHttp();
-    const response = ctx.getResponse();
-    const request = ctx.getRequest();
+    const response = ctx.getResponse<FastifyReply>();
+    const request = ctx.getRequest<FastifyRequest>();
 
     const status =
       exception instanceof HttpException
         ? exception.getStatus()
         : HttpStatus.INTERNAL_SERVER_ERROR;
+    const exceptionResponse =
+      exception instanceof HttpException
+        ? exception.getResponse()
+        : null;
 
     const responseMessage = (type: string, message: unknown) => {
       console.error({
@@ -27,7 +32,7 @@ export class AllExceptionsFilter implements ExceptionFilter {
         errorMessage: message,
       });
 
-      response.status(status).json({
+      response.status(status).send({
         statusCode: status,
         path: request.url,
         errorType: type,
@@ -35,11 +40,9 @@ export class AllExceptionsFilter implements ExceptionFilter {
       });
     };
 
-    const exceptionResponse = exception?.getResponse();
-
     if (exceptionResponse) {
       console.error(exceptionResponse);
-      response.status(status).json(exceptionResponse);
+      response.status(status).send(exceptionResponse);
 
       return;
     }

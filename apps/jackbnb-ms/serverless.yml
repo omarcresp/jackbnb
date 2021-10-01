@@ -22,6 +22,9 @@ provider:
   environment:
     MONGO_URL: ${env:MONGO_URL}
     API_TOKEN: ${env:API_TOKEN}
+    MONGO_CLUSTER: ${env:MONGO_CLUSTER}
+    MONGO_DATABASE: ${env:MONGO_DATABASE}
+    MONGO_PARAMS: ${env:MONGO_PARAMS}
 
 functions:
   jackbnb-rest-v1:
