@@ -41,9 +41,16 @@ export class AuthController {
     @Res() response: FastifyReply,
   ): Promise<UserDocument> {
     const { user } = req;
+
+    console.log('user');
+
     const cookie = this.authService.getCookieWithJwtToken(user.id);
 
+    console.log('jwt created');
+
     response.header('Set-Cookie', cookie);
+
+    console.log('cookie set');
 
     return response.send(user);
   }
