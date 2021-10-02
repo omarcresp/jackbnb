@@ -49,5 +49,17 @@ export const handler: ProxyHandler = async (event, context) => {
 
   console.log('response', response);
 
-  return response;
+  return {
+    statusCode: 201,
+    body: '',
+    headers: {
+      'set-cookie':
+        '_jbt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI2MTU3YzEwYzNhYmU2Mzg2YjQyMmQ5ZTciLCJpYXQiOjE2MzMyMTczNDEsImV4cCI6MTYzMzQ3NjU0MX0.sMOLKsZp8WdnQaWr1aty0jPUv-IKYkVuHiAKxnP49XE; Path=/; Expires=Mon, 04 Oct 2021 23:29:01 GMT; HttpOnly',
+      'content-length': '0',
+      date: 'Sat, 02 Oct 2021 23:29:01 GMT',
+      connection: 'keep-alive',
+      'keep-alive': 'timeout=5'
+    },
+    isBase64Encoded: false
+  };
 };
