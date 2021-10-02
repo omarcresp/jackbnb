@@ -24,7 +24,7 @@ export async function bootstrapServer(): Promise<FastifyInstance> {
   );
 
   nestApp.setGlobalPrefix('api/v1');
-  nestApp.useGlobalFilters(new AllExceptionsFilter());
+  // nestApp.useGlobalFilters(new AllExceptionsFilter());
   nestApp.useGlobalPipes(new ValidationPipe({
     transform: true,
     forbidNonWhitelisted: true,
