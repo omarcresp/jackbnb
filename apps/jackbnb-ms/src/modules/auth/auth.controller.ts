@@ -33,7 +33,7 @@ export class AuthController {
     });
   }
 
-  @HttpCode(204)
+  @HttpCode(200)
   @UseGuards(LocalAuthenticationGuard)
   @Post('login')
   login(
@@ -60,7 +60,7 @@ export class AuthController {
     return req.user;
   }
 
-  @HttpCode(200)
+  @HttpCode(205)
   @UseGuards(JwtAuthenticationGuard)
   @Post('logout')
   logOut(@Res() response: FastifyReply): void {

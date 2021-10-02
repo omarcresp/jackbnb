@@ -22,14 +22,14 @@ export class AuthService {
     return user.save();
   }
 
-  async getByEmail(email: string): Promise<User> {
+  async getByEmail(email: string): Promise<UserDocument> {
     const user = await this.UserModel.findOne({ email }).exec();
 
     if (!user) {
       throw new UnauthorizedException();
     }
 
-    return user.toJSON();
+    return user;
   }
 
   getById(id: string): Promise<User> {
@@ -57,7 +57,7 @@ export class AuthService {
 
     await this.verifyPassword(password, user.password);
 
-    return user;
+    return user.toJSON();
   }
 
   private async verifyPassword(
