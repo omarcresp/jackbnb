@@ -45,13 +45,13 @@ export class AuthController {
     const jwtToken = this.authService.getCookieWithJwtToken(user.id);
     const expireDate = new Date(Date.now() + (3600 * 1000 * 24 * 2));
 
-    response.setCookie('_jbt', jwtToken, {
-      httpOnly: true,
-      path: '/',
-      expires: expireDate,
-    });
+    // response.setCookie('_jbt', jwtToken, {
+    //   httpOnly: true,
+    //   path: '/',
+    //   expires: expireDate,
+    // });
 
-    response.send(user);
+    // response.send(user);
 
     return user;
   }

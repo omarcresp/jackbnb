@@ -21,8 +21,6 @@ export async function bootstrapServer(): Promise<FastifyInstance> {
     new FastifyAdapter(instance),
   );
 
-  console.log(process.env);
-
   nestApp.register(fastifyCookie);
   nestApp.setGlobalPrefix('api/v1');
   nestApp.useGlobalFilters(new AllExceptionsFilter());
