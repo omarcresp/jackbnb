@@ -1,7 +1,7 @@
-import { Request } from 'express';
+import { FastifyRequest } from 'fastify';
 
 import { UserDocument } from './models/auth.model';
 
-export interface RequestWithUser extends Request {
+export interface RequestWithUser extends FastifyRequest {
   user: UserDocument;
 }

@@ -8,7 +8,7 @@ import {
   Req,
   Res,
 } from '@nestjs/common';
-import { Response } from 'express';
+import { FastifyReply } from 'fastify';
 import { hashSync } from 'bcrypt';
 
 import { AuthService } from './auth.service';
@@ -39,12 +39,12 @@ export class AuthController {
   @Post('login')
   async login(
     @Req() req: RequestWithUser,
-    @Res() response: Response,
-  ): Promise<Response> {
+    @Res() response: FastifyReply,
+  ): Promise<FastifyReply> {
     const { user } = req;
     const cookie = this.authService.getCookieWithJwtToken(user.id);
 
-    response.setHeader('Set-Cookie', cookie);
+    response.header('Set-Cookie', cookie);
 
     return response.send(user);
   }
@@ -57,9 +57,9 @@ export class AuthController {
 
   @UseGuards(JwtAuthenticationGuard)
   @Post('logout')
-  logOut(@Res() response: Response): Response {
-    response.setHeader('Set-Cookie', this.authService.getCookieForLogOut());
+  logOut(@Res() response: FastifyReply): FastifyReply {
+    response.header('Set-Cookie', this.authService.getCookieForLogOut());
 
-    return response.sendStatus(200);
+    return response.status(200);
   }
 }
