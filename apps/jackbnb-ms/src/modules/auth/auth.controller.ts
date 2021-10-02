@@ -46,7 +46,11 @@ export class AuthController {
 
     const cookie = this.authService.getCookieWithJwtToken(user.id);
 
+    console.log('cookie', cookie);
+
     response.header('Set-Cookie', cookie);
+
+    console.log('cookie set', cookie);
 
     return user;
   }
