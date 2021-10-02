@@ -14,7 +14,7 @@ import { AppModule } from './app.module';
 let cacheServer: FastifyInstance;
 
 export async function bootstrapServer(): Promise<FastifyInstance> {
-  const instance = fastify();
+  const instance = fastify({ logger: true });
 
   const nestApp = await NestFactory.create<NestFastifyApplication>(
     AppModule,
