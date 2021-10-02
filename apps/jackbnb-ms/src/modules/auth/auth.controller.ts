@@ -33,7 +33,6 @@ export class AuthController {
     });
   }
 
-  @HttpCode(200)
   @UseGuards(LocalAuthenticationGuard)
   @Post('login')
   login(
@@ -51,7 +50,7 @@ export class AuthController {
       expires: expireDate,
     });
 
-    return response.send(user);
+    return response.send('hi');
   }
 
   @UseGuards(JwtAuthenticationGuard)
