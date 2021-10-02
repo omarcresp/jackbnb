@@ -6,7 +6,7 @@ import { proxy } from 'aws-serverless-fastify';
 
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
-import { FastifyAdapter } from '@nestjs/platform-fastify';
+import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 
 import { AllExceptionsFilter } from './filters/allExceptionsFilter';
 import { AppModule } from './app.module';
@@ -16,20 +16,23 @@ let cacheServer: FastifyInstance;
 export async function bootstrapServer(): Promise<FastifyInstance> {
   const instance = fastify();
 
-  instance.register(fastifyCookie);
-
-  const nestApp = await NestFactory.create(
+  const nestApp = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter(instance),
   );
 
+  console.log(process.env);
+
+  nestApp.register(fastifyCookie);
   nestApp.setGlobalPrefix('api/v1');
-  // nestApp.useGlobalFilters(new AllExceptionsFilter());
-  nestApp.useGlobalPipes(new ValidationPipe({
-    transform: true,
-    forbidNonWhitelisted: true,
-    disableErrorMessages: process.env.IS_OFFLINE !== 'true',
-  }));
+  nestApp.useGlobalFilters(new AllExceptionsFilter());
+  nestApp.useGlobalPipes(
+    new ValidationPipe({
+      transform: true,
+      forbidNonWhitelisted: true,
+      disableErrorMessages: process.env.IS_OFFLINE !== 'true',
+    }),
+  );
 
   await nestApp.init();
 
