@@ -41,18 +41,11 @@ export class AuthController {
     @Res() response: FastifyReply,
   ): Promise<UserDocument> {
     const { user } = req;
-
-    console.log('login controller', user);
-
     const cookie = this.authService.getCookieWithJwtToken(user.id);
-
-    console.log('cookie', cookie);
 
     response.header('Set-Cookie', cookie);
 
-    console.log('cookie set', cookie);
-
-    return user;
+    return response.send(user);
   }
 
   @UseGuards(JwtAuthenticationGuard)
@@ -61,11 +54,12 @@ export class AuthController {
     return req.user;
   }
 
+  @HttpCode(205)
   @UseGuards(JwtAuthenticationGuard)
   @Post('logout')
   logOut(@Res() response: FastifyReply): FastifyReply {
     response.header('Set-Cookie', this.authService.getCookieForLogOut());
 
-    return response.status(200);
+    return response.send();
   }
 }

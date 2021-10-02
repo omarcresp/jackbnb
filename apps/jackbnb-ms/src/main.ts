@@ -1,5 +1,5 @@
-import fastify, { FastifyInstance, FastifyServerOptions } from 'fastify';
-import * as cookieParser from 'cookie-parser';
+import fastify, { FastifyInstance } from 'fastify';
+import fastifyCookie from 'fastify-cookie';
 
 import { ProxyHandler } from 'aws-lambda';
 import { proxy } from 'aws-serverless-fastify';
@@ -15,6 +15,9 @@ let cacheServer: FastifyInstance;
 
 export async function bootstrapServer(): Promise<FastifyInstance> {
   const instance = fastify();
+
+  instance.register(fastifyCookie);
+
   const nestApp = await NestFactory.create(
     AppModule,
     new FastifyAdapter(instance),
@@ -27,8 +30,6 @@ export async function bootstrapServer(): Promise<FastifyInstance> {
     forbidNonWhitelisted: true,
     disableErrorMessages: process.env.IS_OFFLINE !== 'true',
   }));
-
-  nestApp.use(cookieParser());
 
   await nestApp.init();
 
