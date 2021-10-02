@@ -28,4 +28,17 @@ module.exports = {
     '/node_modules/',
     '^.+\\.module\\.(css|sass|scss)$',
   ],
+  collectCoverage: true,
+  coverageDirectory: "coverage",
+  coverageReporters: [ "lcov" ],
+  coveragePathIgnorePatterns: [
+    "/node_modules/",
+    '/__testing__/',
+    '/setupTest./',
+    "styles.ts",
+    "/.spec./",
+    "/.d.ts/",
+    ".history",
+    "/_app.tsx"
+  ],
 }
