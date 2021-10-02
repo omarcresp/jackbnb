@@ -1,6 +1,6 @@
 module.exports = {
   collectCoverageFrom: [
-    '**/*.{js,jsx,ts,tsx}',
+    'src/**/*.{js,jsx,ts,tsx}',
     '!**/*.d.ts',
     '!**/node_modules/**',
   ],
@@ -29,16 +29,22 @@ module.exports = {
     '^.+\\.module\\.(css|sass|scss)$',
   ],
   collectCoverage: true,
-  coverageDirectory: "coverage",
-  coverageReporters: [ "lcov" ],
+  coverageDirectory: 'coverage',
+  coverageReporters: ['lcov'],
   coveragePathIgnorePatterns: [
-    "/node_modules/",
+    '/node_modules/',
     '/__testing__/',
     '/setupTest./',
-    "styles.ts",
-    "/.spec./",
-    "/.d.ts/",
-    ".history",
-    "/_app.tsx"
+    'styles.ts',
+    '/.spec./',
+    '/.d.ts/',
+    '.history',
+    '/_app.tsx',
+    '/src/pages'
   ],
+  globals: {
+    'ts-jest': {
+      isolatedModules: true
+    }
+  },
 }
