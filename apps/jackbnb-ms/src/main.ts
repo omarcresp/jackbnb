@@ -42,5 +42,12 @@ export const handler: ProxyHandler = async (event, context) => {
     cacheServer = await bootstrapServer();
   }
 
-  return proxy(cacheServer, event, context);
+  console.log('event', event);
+  console.log('context', context);
+
+  const response = await proxy(cacheServer, event, context);
+
+  console.log('response', response);
+
+  return response;
 };

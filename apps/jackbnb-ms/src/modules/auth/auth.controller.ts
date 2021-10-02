@@ -38,7 +38,7 @@ export class AuthController {
   login(
     @Req() req: RequestWithUser,
     @Res() response: FastifyReply,
-  ): FastifyReply {
+  ): void {
     const { user } = req;
 
     const jwtToken = this.authService.getCookieWithJwtToken(user.id);
@@ -48,9 +48,7 @@ export class AuthController {
       httpOnly: true,
       path: '/',
       expires: expireDate,
-    });
-
-    return response.send('hi');
+    }).send();
   }
 
   @UseGuards(JwtAuthenticationGuard)
