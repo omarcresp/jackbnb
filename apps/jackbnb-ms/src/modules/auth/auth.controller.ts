@@ -33,7 +33,7 @@ export class AuthController {
     });
   }
 
-  @HttpCode(200)
+  @HttpCode(204)
   @UseGuards(LocalAuthenticationGuard)
   @Post('login')
   login(
@@ -52,6 +52,8 @@ export class AuthController {
     // });
 
     // response.send(user);
+
+    console.log(user);
 
     return user;
   }
