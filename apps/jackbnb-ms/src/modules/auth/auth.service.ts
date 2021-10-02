@@ -25,6 +25,8 @@ export class AuthService {
   async getByEmail(email: string): Promise<User> {
     const user = await this.UserModel.findOne({ email }).exec();
 
+    console.log('user by email', user);
+
     if (!user) {
       throw new UnauthorizedException();
     }
