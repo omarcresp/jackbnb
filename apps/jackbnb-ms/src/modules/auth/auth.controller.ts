@@ -38,17 +38,19 @@ export class AuthController {
   login(
     @Req() req: RequestWithUser,
     @Res() response: FastifyReply,
-  ): void {
+  ): string {
     const { user } = req;
 
     const jwtToken = this.authService.getCookieWithJwtToken(user.id);
     const expireDate = new Date(Date.now() + (3600 * 1000 * 24 * 2));
 
-    response.setCookie('_jbt', jwtToken, {
-      httpOnly: true,
-      path: '/',
-      expires: expireDate,
-    }).send();
+    // response.setCookie('_jbt', jwtToken, {
+    //   httpOnly: true,
+    //   path: '/',
+    //   expires: expireDate,
+    // }).send();
+
+    return 'hi' + jwtToken + ' - ' + expireDate;
   }
 
   @UseGuards(JwtAuthenticationGuard)
