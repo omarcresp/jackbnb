@@ -38,16 +38,16 @@ export async function bootstrapServer(): Promise<FastifyInstance> {
 }
 
 export const handler: ProxyHandler = async (event, context) => {
-  if (!cacheServer) {
-    cacheServer = await bootstrapServer();
-  }
+  // if (!cacheServer) {
+  //   cacheServer = await bootstrapServer();
+  // }
 
-  console.log('event', event);
-  console.log('context', context);
+  // console.log('event', event);
+  // console.log('context', context);
 
-  const response = await proxy(cacheServer, event, context);
+  // const response = await proxy(cacheServer, event, context);
 
-  console.log('response', response);
+  // console.log('response', response);
 
   return {
     statusCode: 201,
