@@ -12,7 +12,7 @@ import { FastifyReply } from 'fastify';
 import { hashSync } from 'bcrypt';
 
 import { AuthService } from './auth.service';
-import { User, UserDocument } from './models/auth.model';
+import { User } from './models/auth.model';
 import { LocalAuthenticationGuard } from './guards/localAuthentication.guard';
 import { RequestWithUser } from './auth.interface';
 import { JwtAuthenticationGuard } from './guards/jwtAuthentication.guard';
@@ -39,23 +39,19 @@ export class AuthController {
   login(
     @Req() req: RequestWithUser,
     @Res() response: FastifyReply,
-  ): UserDocument {
+  ): FastifyReply {
     const { user } = req;
 
     const jwtToken = this.authService.getCookieWithJwtToken(user.id);
     const expireDate = new Date(Date.now() + (3600 * 1000 * 24 * 2));
 
-    // response.setCookie('_jbt', jwtToken, {
-    //   httpOnly: true,
-    //   path: '/',
-    //   expires: expireDate,
-    // });
+    response.setCookie('_jbt', jwtToken, {
+      httpOnly: true,
+      path: '/',
+      expires: expireDate,
+    });
 
-    // response.send(user);
-
-    console.log(user);
-
-    return user;
+    return response.send(user);
   }
 
   @UseGuards(JwtAuthenticationGuard)
@@ -64,7 +60,7 @@ export class AuthController {
     return req.user;
   }
 
-  @HttpCode(205)
+  @HttpCode(200)
   @UseGuards(JwtAuthenticationGuard)
   @Post('logout')
   logOut(@Res() response: FastifyReply): void {

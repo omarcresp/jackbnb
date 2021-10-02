@@ -29,7 +29,7 @@ export class AuthService {
       throw new UnauthorizedException();
     }
 
-    return user;
+    return user.toJSON();
   }
 
   getById(id: string): Promise<User> {
