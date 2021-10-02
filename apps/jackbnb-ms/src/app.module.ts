@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 
+import 'aws4';
 import { MongooseModule } from '@nestjs/mongoose';
 import * as normalize from 'normalize-mongoose';
 
