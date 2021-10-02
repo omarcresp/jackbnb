@@ -12,7 +12,7 @@ import { FastifyReply } from 'fastify';
 import { hashSync } from 'bcrypt';
 
 import { AuthService } from './auth.service';
-import { User } from './models/auth.model';
+import { User, UserDocument } from './models/auth.model';
 import { LocalAuthenticationGuard } from './guards/localAuthentication.guard';
 import { RequestWithUser } from './auth.interface';
 import { JwtAuthenticationGuard } from './guards/jwtAuthentication.guard';
@@ -39,7 +39,7 @@ export class AuthController {
   async login(
     @Req() req: RequestWithUser,
     @Res() response: FastifyReply,
-  ): Promise<FastifyReply> {
+  ): Promise<UserDocument> {
     const { user } = req;
 
     console.log('login controller', user);
@@ -48,7 +48,7 @@ export class AuthController {
 
     response.header('Set-Cookie', cookie);
 
-    return response.send(user);
+    return user;
   }
 
   @UseGuards(JwtAuthenticationGuard)
