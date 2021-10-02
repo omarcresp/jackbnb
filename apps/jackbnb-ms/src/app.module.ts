@@ -7,8 +7,6 @@ import * as normalize from 'normalize-mongoose';
 import { PropertiesModule } from './modules/properties/properties.module';
 import { AuthModule } from './modules/auth/auth.module';
 
-console.log('process.env.MONGO_URL', process.env.MONGO_URL);
-
 @Module({
   imports: [
     MongooseModule.forRoot(process.env.MONGO_URL, {

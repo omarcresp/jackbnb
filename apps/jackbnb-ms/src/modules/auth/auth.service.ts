@@ -17,16 +17,13 @@ export class AuthService {
   ) {}
 
   createUser(body: User): Promise<User> {
-    console.log('start service');
     const user = new this.UserModel(body);
 
     return user.save();
   }
 
   async getByEmail(email: string): Promise<User> {
-    console.log('start query');
     const user = await this.UserModel.findOne({ email }).exec();
-    console.log('user', user);
 
     if (!user) {
       throw new UnauthorizedException();
