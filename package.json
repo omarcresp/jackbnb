@@ -1,6 +1,7 @@
 {
   "name": "jackbnb",
   "private": true,
+  "license": "GPL-3.0",
   "workspaces": [
     "packages/*",
     "apps/*"
