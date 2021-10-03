@@ -33,24 +33,18 @@ export class AuthController {
     });
   }
 
+  @HttpCode(200)
   @UseGuards(LocalAuthenticationGuard)
   @Post('login')
   login(
     @Req() req: RequestWithUser,
     @Res() response: FastifyReply,
-  ): string {
+  ): void {
     const { user } = req;
 
-    const jwtToken = this.authService.getCookieWithJwtToken(user.id);
-    const expireDate = new Date(Date.now() + (3600 * 1000 * 24 * 2));
+    const authCookie = this.authService.getCookieWithJwtToken(user.id);
 
-    // response.setCookie('_jbt', jwtToken, {
-    //   httpOnly: true,
-    //   path: '/',
-    //   expires: expireDate,
-    // }).send();
-
-    return 'hi' + jwtToken + ' - ' + expireDate;
+    response.header('set-cookie', authCookie).send(user);
   }
 
   @UseGuards(JwtAuthenticationGuard)
@@ -63,12 +57,8 @@ export class AuthController {
   @UseGuards(JwtAuthenticationGuard)
   @Post('logout')
   logOut(@Res() response: FastifyReply): void {
-    response.setCookie('_jbt', '', {
-      httpOnly: true,
-      path: '/',
-      expires: new Date(),
-    });
+    const logoutCookie = this.authService.getCookieForLogOut();
 
-    response.send();
+    response.header('set-cookie', logoutCookie).send();
   }
 }

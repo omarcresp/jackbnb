@@ -44,8 +44,13 @@ export class AuthService {
 
   getCookieWithJwtToken(userId: string): string {
     const payload = { sub: userId };
+    const token = this.jwtService.sign(payload);
 
-    return this.jwtService.sign(payload);
+    return `_jbt=${token}; HttpOnly; Path=/; Max-Age=3d`;
+  }
+
+  getCookieForLogOut(): string {
+    return `_jbt=; HttpOnly; Path=/; Max-Age=0`;
   }
 
   async getAuthUser(email: string, password: string): Promise<User> {
