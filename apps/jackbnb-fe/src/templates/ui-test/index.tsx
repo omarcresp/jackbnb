@@ -1,7 +1,7 @@
 import React from 'react';
 import type { NextPage } from 'next'
 
-import MyTestButton from '../../components/test';
+import MyTestButton from '../../components/MyTestButton';
 
 const UiTestPage: NextPage = () => {
   return (
