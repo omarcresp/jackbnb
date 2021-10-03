@@ -2,10 +2,15 @@
   "name": "jackbnb",
   "private": true,
   "license": "GPL-3.0",
+  "scripts": {
+    "build": "lerna run build --stream",
+    "build:single": "lerna run build --stream --scope"
+  },
   "workspaces": [
-    "packages/*",
-    "apps/*"
- ],
+    "libs/*",
+    "apps/*",
+    "microservices/*"
+  ],
   "devDependencies": {
     "lerna": "^4.0.0"
   }
