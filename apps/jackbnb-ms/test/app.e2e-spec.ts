@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
+
 import * as request from 'supertest';
 import { AppModule } from './../src/app.module';
 
@@ -15,10 +16,10 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/api/v1/properties (GET)', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .get('/api/v1/properties')
       .expect(200)
-      .expect('Hello World!');
+      .expect('This action returns all properties');
   });
 });
