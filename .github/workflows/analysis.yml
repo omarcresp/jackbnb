@@ -19,7 +19,7 @@ jobs:
       - name: bootstrap
         run: lerna bootstrap
       - name: run tests
-        run: lerna run test:cov --stream --no-sort
+        run: lerna run test --stream --no-sort
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
