@@ -3,7 +3,8 @@
   "private": true,
   "workspaces": [
     "packages/*",
-    "apps/*"
+    "apps/*",
+    "microservices/*"
  ],
   "devDependencies": {
     "lerna": "^4.0.0"

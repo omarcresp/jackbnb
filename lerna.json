@@ -2,7 +2,8 @@
   "version": "independent",
   "packages": [
     "packages/*",
-    "apps/*"
+    "apps/*",
+    "microservices/*"
   ],
   "npmClient": "yarn",
   "useWorkspaces": true
