@@ -7,8 +7,10 @@ import {
   Param,
   Delete,
 } from '@nestjs/common';
-import { AuthService } from './auth.service';
+import { MessagePattern, Payload } from '@nestjs/microservices';
+import { Message } from 'kafkajs';
 
+import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
 
@@ -24,6 +26,12 @@ export class AuthController {
   @Get()
   findAll() {
     return this.authService.findAll();
+  }
+
+  @MessagePattern('my-first-topic') // Our topic name
+  getHello(@Payload() message: Message) {
+    console.log(message.value);
+    return 'Hello World';
   }
 
   @Get(':id')
