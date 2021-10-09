@@ -1,0 +1,51 @@
+{
+	"folders": [
+		{
+			"name": "✨ jackbnb",
+			"path": "."
+		},
+		{
+			"name": "🚀 jackbnb-fe",
+			"path": "apps/jackbnb-fe"
+		},
+		{
+			"name": "🚀 jackbnb-ms",
+			"path": "apps/jackbnb-ms"
+		},
+		{
+			"name": "📦 auth-ms",
+			"path": "microservices/auth-ms"
+		},
+		{
+			"name": "📦 properties-ms",
+			"path": "microservices/properties-ms"
+		}
+	],
+  "settings": {},
+  "extensions": {
+    "recommendations": [
+      "formulahendry.auto-close-tag",
+      "formulahendry.auto-rename-tag",
+      "aaron-bond.better-comments",
+      "alefragnani.bookmarks",
+      "streetsidesoftware.code-spell-checker",
+      "kisstkondoros.vscode-codemetrics",
+      "naumovs.color-highlight",
+      "mikestead.dotenv",
+      "editorconfig.editorconfig",
+      "dbaeumer.vscode-eslint",
+      "eamodio.gitlens",
+      "folke.vscode-monorepo-workspace",
+      "quicktype.quicktype",
+      "esbenp.prettier-vscode",
+      "christian-kohler.path-intellisense",
+      "sonarsource.sonarlint-vscode",
+      "redhat.vscode-yaml",
+      "q.typescript-mono-repo-import-helper",
+      "wayou.vscode-todo-highlight",
+      "gruntfuggly.todo-tree",
+      "richie5um2.vscode-sort-json",
+      "2gua.rainbow-brackets"
+    ]
+  }
+}
