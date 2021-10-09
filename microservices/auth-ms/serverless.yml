@@ -6,9 +6,6 @@ custom:
     httpPort: 4000
     websocketPort: 4001
     lambdaPort: 4002
-  warmup:
-    default:
-      enabled: true
 
 plugins:
   - serverless-plugin-typescript

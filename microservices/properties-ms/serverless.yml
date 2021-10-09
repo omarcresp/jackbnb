@@ -6,9 +6,6 @@ custom:
     httpPort: 4100
     websocketPort: 4101
     lambdaPort: 4102
-  warmup:
-    default:
-      enabled: true
 
 plugins:
   - serverless-plugin-typescript
