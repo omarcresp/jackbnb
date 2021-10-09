@@ -2342,15 +2342,6 @@
   resolved "https://registry.yarnpkg.com/@nestjs/mapped-types/-/mapped-types-1.0.0.tgz#52a0441795f6da8144a35970d3ebc19281f31cfd"
   integrity sha512-26AW5jHadLXtvHs+M+Agd9KZ92dDlBrmD0rORlBlvn2KvsWs4JRaKl2mUsrW7YsdZeAu3Hc4ukqyYyDdyCmMWQ==
 
-"@nestjs/microservices@^8.0.9":
-  version "8.0.9"
-  resolved "https://registry.yarnpkg.com/@nestjs/microservices/-/microservices-8.0.9.tgz#74b2c8df654e4ab09a6fc9a66c78dbcfb0b519f8"
-  integrity sha512-VSWWoI7gmyAfZP8j/QHukgpn1RKRoylOUj0cI1VTAdCFfj7sz+gmci9aw8abLaXFGy/ooje2V4ND8eT655cIDw==
-  dependencies:
-    iterare "1.2.1"
-    json-socket "0.3.0"
-    tslib "2.3.1"
-
 "@nestjs/mongoose@^9.0.0":
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-9.0.0.tgz#d5f4c8c20a826092708f61b41cde02609fc64737"
@@ -9259,11 +9250,6 @@ json-schema@0.2.3:
   resolved "https://registry.yarnpkg.com/json-schema/-/json-schema-0.2.3.tgz#b480c892e59a2f05954ce727bd3f2a4e882f9e13"
   integrity sha1-tIDIkuWaLwWVTOcnvT8qTogvnhM=
 
-json-socket@0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/json-socket/-/json-socket-0.3.0.tgz#f4b953c685bb8e8bd0b72438f5208d9a0799ae07"
-  integrity sha512-jc8ZbUnYIWdxERFWQKVgwSLkGSe+kyzvmYxwNaRgx/c8NNyuHes4UHnPM3LUrAFXUx1BhNJ94n1h/KCRlbvV0g==
-
 json-stable-stringify-without-jsonify@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz#9db7b59496ad3f3cfef30a75142d2d930ad72651"
@@ -9415,11 +9401,6 @@ kafka-node@^5.0.0:
     uuid "^3.0.0"
   optionalDependencies:
     snappy "^6.0.1"
-
-kafkajs@^1.15.0:
-  version "1.15.0"
-  resolved "https://registry.yarnpkg.com/kafkajs/-/kafkajs-1.15.0.tgz#a5ada0d933edca2149177393562be6fb0875ec3a"
-  integrity sha512-yjPyEnQCkPxAuQLIJnY5dI+xnmmgXmhuOQ1GVxClG5KTOV/rJcW1qA3UfvyEJKTp/RTSqQnUR3HJsKFvHyTpNg==
 
 kareem@2.3.2:
   version "2.3.2"
@@ -12746,7 +12727,7 @@ serverless-plugin-warmup@^6.0.0:
   resolved "https://registry.yarnpkg.com/serverless-plugin-warmup/-/serverless-plugin-warmup-6.0.0.tgz#1ee7b8da051de7be252b2ef88f480110a30de980"
   integrity sha512-FdwI34Gb3rA3TIhddE9i0jdSDPuQUbK6bIDZP+Dg2umHTsdbF3o+JBDnXNsopu2qa6US++zLHhzi7OM4IWSl4w==
 
-serverless@^2.60.2, serverless@^2.60.3:
+serverless@^2.60.2:
   version "2.60.3"
   resolved "https://registry.yarnpkg.com/serverless/-/serverless-2.60.3.tgz#271d2d8d080da23a639e3b16ff72eeedcaaf8034"
   integrity sha512-YlMVUc0O9ZbOXDSE1zAqudw3ryB3JvSiHpxpiliYin09MrmYa2scLNx+zBPU42zihz+UMdA3Kt1NGaa5yQucJg==

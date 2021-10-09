@@ -1,27 +1,73 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
+import { InjectModel } from '@nestjs/mongoose';
 
-import { CreateAuthDto } from './dto/create-auth.dto';
-import { UpdateAuthDto } from './dto/update-auth.dto';
+import { Model } from 'mongoose';
+import { compareSync } from 'bcrypt';
+
+import { User, UserDocument } from './entities/auth.entity';
 
 @Injectable()
 export class AuthService {
-  create(createAuthDto: CreateAuthDto) {
-    return 'This action adds a new auth';
+  private readonly peeper = process.env.API_TOKEN;
+
+  constructor(
+    @InjectModel(User.name) private UserModel: Model<UserDocument>,
+    private readonly jwtService: JwtService,
+  ) {}
+
+  createUser(body: User): Promise<User> {
+    const user = new this.UserModel(body);
+
+    return user.save();
   }
 
-  findAll() {
-    return `This action returns all auth`;
+  async getByEmail(email: string): Promise<UserDocument> {
+    const user = await this.UserModel.findOne({ email }).exec();
+
+    if (!user) {
+      throw new UnauthorizedException();
+    }
+
+    return user;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} auth`;
+  getById(id: string): Promise<User> {
+    const user = this.UserModel.findById(id).exec();
+
+    if (!user) {
+      throw new UnauthorizedException();
+    }
+
+    return user;
   }
 
-  update(id: number, updateAuthDto: UpdateAuthDto) {
-    return `This action updates a #${id} auth`;
+  getCookieWithJwtToken(userId: string): string {
+    const payload = { sub: userId };
+
+    return this.jwtService.sign(payload);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} auth`;
+  async getAuthUser(email: string, password: string): Promise<User> {
+    const user = await this.getByEmail(email);
+
+    if (!user) {
+      throw new UnauthorizedException();
+    }
+
+    await this.verifyPassword(password, user.password);
+
+    return user.toJSON();
+  }
+
+  private async verifyPassword(
+    password: string,
+    hashPassword: string,
+  ): Promise<void> {
+    const validPassword = compareSync(password + this.peeper, hashPassword);
+
+    if (!validPassword) {
+      throw new UnauthorizedException();
+    }
   }
 }
