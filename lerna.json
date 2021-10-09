@@ -1,7 +1,7 @@
 {
   "version": "independent",
   "packages": [
-    "packages/*",
+    "libs/*",
     "apps/*",
     "microservices/*"
   ],
