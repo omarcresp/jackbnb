@@ -1,0 +1,44 @@
+service: jackbnb
+useDotenv: true
+
+custom:
+  serverless-offline:
+    httpPort: 4100
+    websocketPort: 4101
+    lambdaPort: 4102
+  warmup:
+    default:
+      enabled: true
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-plugin-warmup
+  - serverless-offline
+  - serverless-plugin-common-excludes
+  - serverless-plugin-include-dependencies
+
+package:
+  excludeDevDependencies: false
+  patterns:
+    - '!.yarn/**'
+    - '!.sonar/**'
+    - '!.history/**'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  lambdaHashingVersion: 20201221
+  environment:
+    MONGO_URL: ${env:MONGO_URL}
+    API_TOKEN: ${env:API_TOKEN}
+
+functions:
+  properties:
+    handler: src/main.handler
+    events:
+      - http:
+          path: properties/{proxy+}
+          method: any
+      - http:
+          path: properties
+          method: any
