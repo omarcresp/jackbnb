@@ -1,4 +1,4 @@
-service: jackbnb
+service: jackbnb-auth
 useDotenv: true
 
 custom:

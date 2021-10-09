@@ -5,6 +5,7 @@
   "license": "GPL-3.0",
   "scripts": {
     "start": "serverless offline",
+    "deploy": "serverless deploy --stage dev",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
