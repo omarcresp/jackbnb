@@ -9,7 +9,7 @@ import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot(process.env.MONGO_URL, {
+    MongooseModule.forRoot(process.env.MONGO_URL ?? '', {
       connectionFactory(connection) {
         connection.plugin(normalize);
 
