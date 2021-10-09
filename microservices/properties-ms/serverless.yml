@@ -9,7 +9,6 @@ custom:
 
 plugins:
   - serverless-plugin-typescript
-  - serverless-plugin-warmup
   - serverless-offline
   - serverless-plugin-common-excludes
   - serverless-plugin-include-dependencies
