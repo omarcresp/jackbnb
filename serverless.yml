@@ -30,11 +30,20 @@ provider:
 
 functions:
   auth:
-    handler: src/main.handler
+    handler: microservices/auth-ms/src/main.handler
     events:
       - http:
           path: auth/{proxy+}
           method: any
       - http:
           path: auth
+          method: any
+  properties:
+    handler: microservices/properties-ms/src/main.handler
+    events:
+      - http:
+          path: properties/{proxy+}
+          method: any
+      - http:
+          path: properties
           method: any
