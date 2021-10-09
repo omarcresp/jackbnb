@@ -10,7 +10,6 @@ import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
-import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 
 import { AllExceptionsFilter } from './filters/allExceptionsFilter';
 import { AppModule } from './app.module';
@@ -36,19 +35,6 @@ export async function bootstrapServer(): Promise<FastifyInstance> {
     }),
   );
 
-  nestApp.connectMicroservice<MicroserviceOptions>({
-    transport: Transport.KAFKA,
-    options: {
-      client: {
-        brokers: ['localhost:9092'],
-      },
-      consumer: {
-        groupId: 'auth-ms-consumer',
-      },
-    },
-  });
-
-  await nestApp.startAllMicroservices();
   await nestApp.init();
 
   return instance;
