@@ -46,11 +46,9 @@ export const handler: ProxyHandler = async (event, context) => {
 
   const setCookie = response.headers?.['set-cookie'] as unknown as string[];
 
-  if (setCookie instanceof Array) {
-    response.headers['set-cookie'] = setCookie.shift();
+  if (response.headers && setCookie instanceof Array) {
+    response.headers['set-cookie'] = setCookie.shift() ?? '';
   }
-
-  console.log('response', response)
 
   return response;
 };

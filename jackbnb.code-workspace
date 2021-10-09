@@ -1,26 +1,34 @@
 {
 	"folders": [
-		{
-			"name": "✨ jackbnb",
-			"path": "."
-		},
-		{
-			"name": "🚀 jackbnb-fe",
-			"path": "apps/jackbnb-fe"
-		},
-		{
-			"name": "🚀 jackbnb-ms",
-			"path": "apps/jackbnb-ms"
-		},
-		{
-			"name": "📦 auth-ms",
-			"path": "microservices/auth-ms"
-		},
-		{
-			"name": "📦 properties-ms",
-			"path": "microservices/properties-ms"
-		}
-	],
+    {
+      "name": "✨ jackbnb",
+      "path": "."
+    },
+    {
+      "name": "🚀 jackbnb-fe",
+      "path": "apps/jackbnb-fe"
+    },
+    {
+      "name": "🚀 jackbnb-ms",
+      "path": "apps/jackbnb-ms"
+    },
+    {
+      "name": "⚙️ @jackbnb/exception-filter",
+      "path": "libs/exception-filter"
+    },
+    {
+      "name": "⚙️ @jackbnb/serverless",
+      "path": "libs/serverless"
+    },
+    {
+      "name": "📦 auth-ms",
+      "path": "microservices/auth-ms"
+    },
+    {
+      "name": "📦 properties-ms",
+      "path": "microservices/properties-ms"
+    }
+  ],
   "settings": {},
   "extensions": {
     "recommendations": [
