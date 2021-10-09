@@ -2,11 +2,14 @@
   "name": "jackbnb",
   "private": true,
   "license": "GPL-3.0",
+  "scripts": {
+    "deploy": "serverless deploy --stage dev"
+  },
   "workspaces": [
     "libs/*",
     "apps/*",
     "microservices/*"
- ],
+  ],
   "devDependencies": {
     "lerna": "^4.0.0"
   }
