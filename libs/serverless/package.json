@@ -1,8 +1,11 @@
 {
   "name": "@jackbnb/serverless",
   "version": "0.1.0",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
     "@jackbnb/exception-filter": "^1.0.0",
     "@nestjs/common": "^8.0.11",

@@ -9,10 +9,6 @@
       "path": "apps/jackbnb-fe"
     },
     {
-      "name": "🚀 jackbnb-ms",
-      "path": "apps/jackbnb-ms"
-    },
-    {
       "name": "⚙️ @jackbnb/exception-filter",
       "path": "libs/exception-filter"
     },
