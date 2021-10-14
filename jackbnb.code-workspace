@@ -1,5 +1,5 @@
 {
-	"folders": [
+  "folders": [
     {
       "name": "✨ jackbnb",
       "path": "."
@@ -15,6 +15,10 @@
     {
       "name": "⚙️ @jackbnb/serverless",
       "path": "libs/serverless"
+    },
+    {
+      "name": "⚙️ @jackbnb/paginate",
+      "path": "libs/paginate"
     },
     {
       "name": "📦 auth-ms",
