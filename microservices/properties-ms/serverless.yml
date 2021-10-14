@@ -6,12 +6,18 @@ custom:
     httpPort: 4100
     websocketPort: 4101
     lambdaPort: 4102
+  customDomain:
+    domainName: api.wermote.com
+    basePath: ''
+    stage: dev
+    createRoute53Record: true
 
 plugins:
   - serverless-plugin-typescript
   - serverless-offline
   - serverless-plugin-common-excludes
   - serverless-plugin-include-dependencies
+  - serverless-domain-manager
 
 package:
   excludeDevDependencies: false

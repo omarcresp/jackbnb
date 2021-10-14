@@ -1,16 +1,20 @@
 {
-	"folders": [
+  "folders": [
     {
       "name": "✨ jackbnb",
       "path": "."
     },
     {
-      "name": "🚀 jackbnb-fe",
+      "name": "🚀 jackbnb-portal",
       "path": "apps/jackbnb-fe"
     },
     {
       "name": "⚙️ @jackbnb/exception-filter",
       "path": "libs/exception-filter"
+    },
+    {
+      "name": "⚙️ @jackbnb/paginate",
+      "path": "libs/paginate"
     },
     {
       "name": "⚙️ @jackbnb/serverless",
