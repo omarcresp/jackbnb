@@ -1,10 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 import { Button } from "@chakra-ui/react";
 
-function PrimaryButton() {
+const PrimaryButton: FC = ({children}) => {
   return (
-    <Button bg="#58DE15" w="300px" h="50px">
-      Boton Primario
+    <Button bg="#58DE15" h="50px" radio="10px" text-align="center" p="15px">
+      {children}
     </Button>
   );
 }
