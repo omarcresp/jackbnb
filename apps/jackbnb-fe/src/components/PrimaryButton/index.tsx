@@ -5,10 +5,10 @@ interface PrimaryButton {
   fitParent?: boolean;
 }
 
-const PrimaryButton: FC = ({children}) => {
+const PrimaryButton: FC <PrimaryButton> = ({children, fitParent}) => {
   return (
-    <Button bg="#58DE15" h="50px" radio="10px" text-align="center" p="15px">
-      {children}
+    <Button bg="#58DE15" h="50px" radio="10px" text-align="center" p="10px" widht={fitParent && 'inherit'}>
+      { children }
     </Button>
   );
 }
