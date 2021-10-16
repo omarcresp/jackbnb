@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Button } from "@chakra-ui/react";
 
-interface PrimaryButton {
+interface PrimaryButtonProps {
   fitParent?: boolean;
 }
 
