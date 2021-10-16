@@ -7,7 +7,7 @@ interface PrimaryButton {
 
 const PrimaryButton: FC <PrimaryButton> = ({children, fitParent}) => {
   return (
-    <Button bg="#58DE15" h="50px" radio="10px" text-align="center" p="10px" widht={fitParent && 'inherit'}>
+    <Button bg="#58DE15" h="50px" radio="10px" text-align="center" p="10px" width={fitParent ? 'inherit' : 'unset'}>
       { children }
     </Button>
   );
