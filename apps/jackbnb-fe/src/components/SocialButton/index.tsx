@@ -1,9 +1,13 @@
 import React from 'react';
-import { Button,Icon, Stack, Spacer } from "@chakra-ui/react";
-import { FaFacebook,FaTwitter,FaGoogle } from "react-icons/fa";
+import PropTypes from 'prop-types';
+import { Button,Image, Stack, Spacer } from "@chakra-ui/react";
+import iconApple from './assets/icon/apple.svg';
+import iconEmail from './assets/icon/email.svg';
+import iconFacebook from './assets/icon/facebook.svg';
+import iconGoogle from './assets/icon/google.svg';
 
 
-function Feature({ title,icono }) {
+const SocialButton = ({ children,icon } ) => {
   return (
        <Button 
         height="38px"
@@ -16,9 +20,9 @@ function Feature({ title,icono }) {
         pl="30px"
         _hover={{ bg: "#ebedf0" }}
         >
-           <Icon as={icono} boxSize={6} />
+           <Image src={icon} boxSize={6} />
            <Spacer />
-            {title}
+            {children}
 
         </Button>
   )
@@ -29,22 +33,31 @@ export default function Home() {
     
       <Stack spacing={4} mt={8} ml={8} >
 
-      <Feature
-         title="Registrate en Twitter"
-         icono={FaFacebook}
+      <SocialButton
+         children="Registrate en Apple"
+         icon={iconApple}
       />
   
-      <Feature
-        title="Registrate en Facebook"
-        icono={FaTwitter}
+      <SocialButton
+        children="Registrate en Facebook"
+        icon={iconFacebook}
       />
   
-      <Feature
-        title="Registrate en Google"
-        icono={FaGoogle}
+      <SocialButton
+        children="Registrate en Google"
+        icon={iconGoogle}
+      />
+
+      <SocialButton
+        children="Registrate por correo"
+        icon={iconEmail}
       />
   
   </Stack>
       )
 }
 
+SocialButton.propTypes = {
+  children: PropTypes.string,
+  icon: PropTypes.string
+};
