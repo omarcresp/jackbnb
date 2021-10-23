@@ -2,6 +2,7 @@ service: jackbnb-properties
 useDotenv: true
 
 custom:
+  stage: ${opt:stage, dev}
   serverless-offline:
     httpPort: 4100
     websocketPort: 4101
@@ -9,7 +10,7 @@ custom:
   customDomain:
     domainName: api.wermote.com
     basePath: ''
-    stage: dev
+    stage: ${self:custom.stage}
     createRoute53Record: true
 
 plugins:
