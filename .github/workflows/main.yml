@@ -22,5 +22,7 @@ jobs:
           aws-region: us-east-1
       - name: bootstrap
         run: lerna bootstrap
+      - name: build
+        run: lerna run build
       - name: deploy
         run: lerna run deploy
