@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('https://d500.epimg.net/cincodias/imagenes/2021/10/06/fortunas/1633542392_907620_1633542617_noticia_normal.jpg');
+    background-size: cover;
+    height: 450px;
+    width:500px;
+    border-radius: 5px;
+}
+
+.h1{
+    color: white;
+}
+
+.tr{
+    color: greenyellow;
+    text-decoration: underline;
+    text-decoration-color: greenyellow;
+}
+
