@@ -1,14 +1,67 @@
+import { FilterQuery } from "mongoose";
 
-export function paginate(query: Array<Object>, perPage: number = 10): Array<any> {
-  let newArray = [{}];
-  let mapCounter = 0;
+export const paginationPipeline = <T extends Record<string, any>>(
+  page = "0",
+  resultPerPage = 10,
+  filter: FilterQuery<T> = {},
+) => {
+  const limit = resultPerPage;
+  const skip = (Number(page) - 1) * limit;
 
-  query.map((entry, index) => {
-    Object.keys(newArray[mapCounter]).length < perPage ?
-      (newArray[mapCounter][index] = entry) :
-      (mapCounter++, newArray.push({}), newArray[mapCounter][index] = entry
-    );
-  });
-
-  return newArray;
+  return [
+    {
+      $match: {
+        ...filter,
+      },
+    },
+    {
+      $sort: {
+        createdAt: -1,
+      },
+    },
+    {
+      $facet: {
+        total: [
+          {
+            $count: "count",
+          },
+        ],
+        data: [
+          {
+            $addFields: {
+              _id: "$$REMOVE",
+            },
+          },
+        ],
+      },
+    },
+    {
+      $unwind: "$total",
+    },
+    {
+      $project: {
+        items: {
+          $slice: [
+            "$data",
+            skip,
+            {
+              $ifNull: [limit, "$total.count"],
+            },
+          ],
+        },
+        page: {
+          $literal: skip / limit + 1,
+        },
+        hasNextPage: {
+          $lt: [{ $multiply: [limit, Number(page)] }, "$total.count"],
+        },
+        totalPages: {
+          $ceil: {
+            $divide: ["$total.count", limit],
+          },
+        },
+        totalItems: "$total.count",
+      },
+    },
+  ];
 };
