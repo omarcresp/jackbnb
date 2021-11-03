@@ -1,7 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 
-import { paginate } from '@jackbnb/paginate';
 import { Model } from 'mongoose';
 
 import { CreatePropertyDto } from './dto/create-property.dto';
@@ -19,13 +18,25 @@ export class PropertiesService {
   }
 
   async findAll(): Promise<PropertyDocument[]> {
-    const result = await this.PropertyModel.find().limit(300).exec();
+    const paginatedResults = await this.PropertyModel.aggregate(
+      this.PropertyModel.schema.methods.paginate(),
+    );
 
-    if (!result) {
+    if (paginatedResults[0]['page'] <= -1) {
       throw new NotFoundException();
     }
 
-    const paginatedResults = paginate(result, 15);
+    return paginatedResults;
+  }
+
+  async findPerPage(id: number): Promise<PropertyDocument[]> {
+    const paginatedResults = await this.PropertyModel.aggregate(
+      this.PropertyModel.schema.methods.paginate(id, 10),
+    );
+
+    if (paginatedResults[0]['page'] <= -1) {
+      throw new NotFoundException();
+    }
 
     return paginatedResults;
   }

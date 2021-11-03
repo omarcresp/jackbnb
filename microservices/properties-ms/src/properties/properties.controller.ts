@@ -26,6 +26,11 @@ export class PropertiesController {
   }
 
   @Get(':id')
+  findPerPage(@Param('id') id: number) {
+    return this.propertiesService.findPerPage(+id);
+  }
+
+  @Get('details/:id')
   findOne(@Param('id') id: string) {
     return this.propertiesService.findOne(+id);
   }
