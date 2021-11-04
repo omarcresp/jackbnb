@@ -20,11 +20,6 @@ export class PropertiesController {
     return this.propertiesService.create(createPropertyDto);
   }
 
-  @Get()
-  findAll() {
-    return this.propertiesService.findAll();
-  }
-
   @Get(':id')
   findPerPage(@Param('id') id: number) {
     return this.propertiesService.findPerPage(+id);
