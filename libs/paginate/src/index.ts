@@ -1,24 +1,11 @@
-import { FilterQuery } from "mongoose";
-
-export const paginationPipeline = <T extends Record<string, any>>(
-  page = "0",
+export const paginationPipeline = <T extends Record<number, any>>(
+  page = 0,
   resultPerPage = 10,
-  filter: FilterQuery<T> = {},
 ) => {
   const limit = resultPerPage;
-  const skip = (Number(page) - 1) * limit;
+  const skip = (page - 1) * limit;
 
   return [
-    {
-      $match: {
-        ...filter,
-      },
-    },
-    {
-      $sort: {
-        createdAt: -1,
-      },
-    },
     {
       $facet: {
         total: [
