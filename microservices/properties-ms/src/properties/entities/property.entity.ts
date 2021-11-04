@@ -1,7 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
-import { paginationPipeline } from '@jackbnb/paginate';
-
 import { Document } from 'mongoose';
 
 @Schema()
@@ -61,9 +59,6 @@ export class Property {
   host: string;
 }
 
-export const PropertySchema = SchemaFactory.createForClass(Property).method(
-  'paginate',
-  paginationPipeline,
-);
+export const PropertySchema = SchemaFactory.createForClass(Property);
 
 export type PropertyDocument = Property & Document;
