@@ -19,27 +19,27 @@ export class PropertiesService {
     return 'This action adds a new property';
   }
 
-  async findPerPage(id: number): Promise<PropertyDocument[]> {
-    const paginatedResults = await this.PropertyModel.aggregate(
-      paginationPipeline(id, 10),
-    );
-
-    if (paginatedResults[0]['page'] <= -1) {
+  async findPerPage(page: number): Promise<PropertyDocument[]> {
+    if (page < 1 || isNaN(page)) {
       throw new NotFoundException();
     }
 
-    return paginatedResults;
+    const results = await this.PropertyModel.aggregate(
+      paginationPipeline(page),
+    ).exec();
+
+    return results[0];
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} property`;
   }
 
-  update(id: number, updatePropertyDto: UpdatePropertyDto) {
+  update(id: string, updatePropertyDto: UpdatePropertyDto) {
     return `This action updates a #${id} property`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} property`;
   }
 }

@@ -5,6 +5,7 @@ import {
   Body,
   Patch,
   Param,
+  Query,
   Delete,
 } from '@nestjs/common';
 import { PropertiesService } from './properties.service';
@@ -20,14 +21,14 @@ export class PropertiesController {
     return this.propertiesService.create(createPropertyDto);
   }
 
-  @Get(':id')
-  findPerPage(@Param('id') id: number) {
-    return this.propertiesService.findPerPage(+id);
+  @Get()
+  getAllPaginated(@Query('page') page = '1') {
+    return this.propertiesService.findPerPage(+page);
   }
 
-  @Get('details/:id')
+  @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.propertiesService.findOne(+id);
+    return this.propertiesService.findOne(id);
   }
 
   @Patch(':id')
@@ -35,11 +36,11 @@ export class PropertiesController {
     @Param('id') id: string,
     @Body() updatePropertyDto: UpdatePropertyDto,
   ) {
-    return this.propertiesService.update(+id, updatePropertyDto);
+    return this.propertiesService.update(id, updatePropertyDto);
   }
 
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.propertiesService.remove(+id);
+    return this.propertiesService.remove(id);
   }
 }

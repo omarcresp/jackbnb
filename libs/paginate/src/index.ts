@@ -1,5 +1,5 @@
-export const paginationPipeline = <T extends Record<number, any>>(
-  page = 0,
+export const paginationPipeline = (
+  page = 1,
   resultPerPage = 10,
 ) => {
   const limit = resultPerPage;
@@ -10,44 +10,45 @@ export const paginationPipeline = <T extends Record<number, any>>(
       $facet: {
         total: [
           {
-            $count: "count",
+            $count: 'count',
           },
         ],
         data: [
           {
             $addFields: {
-              _id: "$$REMOVE",
+              id: '$_id',
+              _id: '$$REMOVE',
             },
           },
         ],
       },
     },
     {
-      $unwind: "$total",
+      $unwind: '$total',
     },
     {
       $project: {
         items: {
           $slice: [
-            "$data",
+            '$data',
             skip,
             {
-              $ifNull: [limit, "$total.count"],
+              $ifNull: [limit, '$total.count'],
             },
           ],
         },
         page: {
-          $literal: skip / limit + 1,
+          $literal: page,
         },
         hasNextPage: {
-          $lt: [{ $multiply: [limit, Number(page)] }, "$total.count"],
+          $lt: [limit * page, '$total.count'],
         },
         totalPages: {
           $ceil: {
-            $divide: ["$total.count", limit],
+            $divide: ['$total.count', limit],
           },
         },
-        totalItems: "$total.count",
+        totalItems: '$total.count',
       },
     },
   ];
