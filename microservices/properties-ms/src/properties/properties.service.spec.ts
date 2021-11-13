@@ -1,7 +1,6 @@
 import { NotFoundException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { getModelToken } from '@nestjs/mongoose';
-
 import { Model } from 'mongoose';
 
 import { PropertiesService } from './properties.service';
@@ -17,7 +16,7 @@ const mockData = (
 
 describe('PropertiesService', () => {
   let service: PropertiesService;
-  let model;
+  let model: Model<PropertyDocument>;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -35,12 +34,6 @@ describe('PropertiesService', () => {
 
     service = module.get<PropertiesService>(PropertiesService);
     model = module.get<Model<PropertyDocument>>(getModelToken(Property.name));
-  });
-
-  describe('General Behaviour', () => {
-    it('should be defined', () => {
-      expect(service).toBeDefined();
-    });
   });
 
   afterEach(() => {
