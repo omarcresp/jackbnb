@@ -2,17 +2,22 @@ import React, {FC} from 'react';
 import { Heading,Box,Image,Text } from "@chakra-ui/react";
 import placeholderIcon from "../../assets/icon/placeholderIcon.svg";
 
-import SpaceTypeStyles from './index.module.css'
+import SpaceTypeStyles from './index.module.css';
 
-const CirclesImage:FC = ({textImage}) => {
+interface CirclesImageProps{
+  textImage: string;
+  alt:string;
+
+}
+
+
+const CirclesImage:FC <CirclesImageProps> = ({alt,textImage}) => {
 
     return(
 
-        <Box mr="10px">
-        <Image
-        boxSize="121px"
-        src={placeholderIcon.src}
-        alt="image"/>
+        <Box align="center">
+
+        <Image boxSize="121px" src={placeholderIcon.src} alt={alt}/>
 
         <Text color="#808080" size="16px">{textImage} </Text>
 
@@ -24,34 +29,31 @@ const CirclesImage:FC = ({textImage}) => {
 const SpaceType: FC = () => {
 
   return (
-    <>
 
-    <Box align="center" mt="47px" mb="24px">
+    <div className={SpaceTypeStyles.myContainer_item}>
 
-        <Heading as="h2" size="22px" color="#000000" >¿Qué espacio estás buscando?</Heading>
+      <Box mt="47px" mb="24px">
 
-    </Box>
+          <Heading as="h2" size="22px" color="#000000" textAlign="center" >¿Qué espacio estás buscando?</Heading>
 
-    <div className={SpaceTypeStyles.myContainer} >
-        
-        <CirclesImage textImage="Zonas verdes" />
-        
-        <CirclesImage textImage="Zonas urbanas"/>
+      </Box>
 
-        <CirclesImage textImage="Zonas urbanas"/>
+      <div className={SpaceTypeStyles.myContainer} >
+          
+          <CirclesImage alt="zona verde" textImage="Zonas Verdes" />
+          
+          <CirclesImage alt="zona urbana" textImage="Zonas Urbanas"/>
 
-        <CirclesImage textImage="Zonas urbanas"/>
+          <CirclesImage alt="biblioteca" textImage="Biblioteca"/>
 
-        <CirclesImage textImage="Zonas urbanas"/>
+          <CirclesImage alt="oficina" textImage="Oficina"/>
 
-        <CirclesImage textImage="Zonas urbanas"/>
+          <CirclesImage alt="coworking" textImage="Coworking"/>
 
-        <CirclesImage textImage="Zonas urbanas"/>
+      </div>
+
     </div>
 
-
-
-    </>
   );
 };
 

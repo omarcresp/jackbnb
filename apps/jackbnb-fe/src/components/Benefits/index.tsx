@@ -3,13 +3,19 @@ import { Heading,Box,Stack,Flex,Image,Text } from '@chakra-ui/react';
 import placeHolderIcon from '../../assets/icon/placeholderIcon.svg'
 
 
-const Items: FC = ({title,description}) => {
+interface ItemsProps{
+    alt:string;
+    title:string;
+    description:string;
+}
+
+const Items: FC <ItemsProps> = ({alt,title,description}) => {
     
     return(
-        
-    <Flex mb="32px" align="center">
 
-        <Image src={placeHolderIcon.src} boxSize="49px" alt="image"/>
+    <Flex  align="center">
+
+        <Image src={placeHolderIcon.src} boxSize="49px" alt={alt}/>
                     
             <Box ml="10px" >
                 <Text size="18px" color="#000000" fontWeight="bold">{title}</Text>
@@ -17,12 +23,11 @@ const Items: FC = ({title,description}) => {
             </Box>
 
     </Flex>
-
     )
 
 }
 
-// resolver el bug del margin
+
 const Benefits: FC = () => {
 
     return(
@@ -31,19 +36,17 @@ const Benefits: FC = () => {
 
             <Heading as="h2" size="22px" color="#000000" textAlign="center" mb="40px">¿Porqué te conviene cambiar tu lugar de trabajo?</Heading>
 
-            <Stack>
+            <Stack spacing="32px">
 
-                <Items title="Mayor Creatividad" description="Lorem ipsum dolor sit ame" />
+                <Items alt= "mayor creatividad" title="Mayor Creatividad" description="Lorem ipsum dolor sit ame" />1
 
-                <Items title="Experiencia" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
+                <Items alt= "experincia" title="Experiencia" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit" />
 
-                <Items title="Servicio Excelente" description="Lorem ipsum dolor"/>                
+                <Items alt= "servicio excelente" title="Servicio Excelente" description="Lorem ipsum dolor"/>                
 
             </Stack>
 
         </Box>
-
-
         </>
     )
 

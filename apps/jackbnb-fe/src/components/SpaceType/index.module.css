@@ -1,8 +1,14 @@
+
+.myContainer_item{
+  overflow-x:hidden;
+}
+
 .myContainer {
-    min-width: 100%;
-    width: auto;
-    display:flex;
+    display:grid;
+    grid-template-columns:repeat(5,121px);
+    width:98%;
+    grid-gap:10px;
     overflow-x: scroll;
-    margin-left:15px ;
+    margin-left: 15px;
   }
   

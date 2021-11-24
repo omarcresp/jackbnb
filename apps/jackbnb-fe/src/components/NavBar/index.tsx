@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {Box,Flex,Heading,Img,Divider} from '@chakra-ui/react';
-import hamburgerButton from '../../assets/icon/hamburgerButton.svg';
-import profileIcon from '../../assets/icon/profileIcon.svg'
+import hamburgerButton from '../../assets/icon/hamburger-button.svg';
+import profileIcon from '../../assets/icon/profile-icon.png'
 
 
 const NavBar: FC = () => {
@@ -9,19 +9,11 @@ const NavBar: FC = () => {
   return (
     <>
 
-    <Flex
-     align={'center'} 
-     justifyContent={'space-between'} 
-     bg="#D9F2A5"
-     w="100%" 
-     h="50px" 
-     >
+    <Flex alignItems={'center'} justifyContent={'space-between'}  bg="#D9F2A5" w="100%" h="50px" >
       
        <Heading size="18px" ml="15px" color="#000000">
           Brand
         </Heading>
-
-
 
       <Flex alignItems={'center'} justifyContent={'center'} mr="15px"  >
 
@@ -34,7 +26,6 @@ const NavBar: FC = () => {
         <Img  boxSize="23px"   src={profileIcon.src} />
 
       </Flex>
-
 
    </Flex>
 
