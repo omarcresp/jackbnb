@@ -1,14 +1,55 @@
+export const paginationPipeline = (
+  page = 1,
+  resultPerPage = 10,
+) => {
+  const limit = resultPerPage;
+  const skip = (page - 1) * limit;
 
-export function paginate(query: Array<Object>, perPage: number = 10): Array<any> {
-  let newArray = [{}];
-  let mapCounter = 0;
-
-  query.map((entry, index) => {
-    Object.keys(newArray[mapCounter]).length < perPage ?
-      (newArray[mapCounter][index] = entry) :
-      (mapCounter++, newArray.push({}), newArray[mapCounter][index] = entry
-    );
-  });
-
-  return newArray;
+  return [
+    {
+      $facet: {
+        total: [
+          {
+            $count: 'count',
+          },
+        ],
+        data: [
+          {
+            $addFields: {
+              id: '$_id',
+              _id: '$$REMOVE',
+            },
+          },
+        ],
+      },
+    },
+    {
+      $unwind: '$total',
+    },
+    {
+      $project: {
+        items: {
+          $slice: [
+            '$data',
+            skip,
+            {
+              $ifNull: [limit, '$total.count'],
+            },
+          ],
+        },
+        page: {
+          $literal: page,
+        },
+        hasNextPage: {
+          $lt: [limit * page, '$total.count'],
+        },
+        totalPages: {
+          $ceil: {
+            $divide: ['$total.count', limit],
+          },
+        },
+        totalItems: '$total.count',
+      },
+    },
+  ];
 };

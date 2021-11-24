@@ -1,7 +1,8 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 
-import { paginate } from '@jackbnb/paginate';
+import { paginationPipeline } from '@jackbnb/paginate';
+
 import { Model } from 'mongoose';
 
 import { CreatePropertyDto } from './dto/create-property.dto';
@@ -18,27 +19,27 @@ export class PropertiesService {
     return 'This action adds a new property';
   }
 
-  async findAll(): Promise<PropertyDocument[]> {
-    const result = await this.PropertyModel.find().limit(300).exec();
-
-    if (!result) {
+  async findPerPage(page: number): Promise<PropertyDocument[]> {
+    if (page < 1 || isNaN(page)) {
       throw new NotFoundException();
     }
 
-    const paginatedResults = paginate(result, 15);
+    const results = await this.PropertyModel.aggregate(
+      paginationPipeline(page),
+    ).exec();
 
-    return paginatedResults;
+    return results[0];
   }
 
-  findOne(id: number) {
+  findOne(id: string) {
     return `This action returns a #${id} property`;
   }
 
-  update(id: number, updatePropertyDto: UpdatePropertyDto) {
+  update(id: string, updatePropertyDto: UpdatePropertyDto) {
     return `This action updates a #${id} property`;
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} property`;
   }
 }
