@@ -1,0 +1,8 @@
+.myContainer {
+    min-width: 100%;
+    width: auto;
+    display:flex;
+    overflow-x: scroll;
+    margin-left:15px ;
+  }
+  
