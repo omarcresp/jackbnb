@@ -1,8 +1,9 @@
 {
   "version": "independent",
   "packages": [
-    "packages/*",
-    "apps/*"
+    "libs/*",
+    "apps/*",
+    "microservices/*"
   ],
   "npmClient": "yarn",
   "useWorkspaces": true
