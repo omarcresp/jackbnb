@@ -1,9 +1,9 @@
 
-.myContainer_item{
+.myContainer{
   overflow-x:hidden;
 }
 
-.myContainer {
+.myContainer_items {
     display:grid;
     grid-template-columns:repeat(5,121px);
     width:98%;
@@ -11,4 +11,9 @@
     overflow-x: scroll;
     margin-left: 15px;
   }
+
+  .myContainer_items::-webkit-scrollbar{
+    height:0px;
+  } 
+
   
