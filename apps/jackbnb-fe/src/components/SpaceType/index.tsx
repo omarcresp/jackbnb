@@ -1,29 +1,9 @@
 import React, {FC} from 'react';
-import { Heading,Box,Image,Text } from "@chakra-ui/react";
-import placeholderIcon from "../../assets/icon/placeholderIcon.svg";
+import { Heading,Box } from "@chakra-ui/react";
 
 import SpaceTypeStyles from './index.module.css';
+import CirclesImage from './CirclesImage/circlesImage';
 
-interface CirclesImageProps{
-  textImage: string;
-  alt:string;
-
-}
-
-const CirclesImage:FC <CirclesImageProps> = ({alt,textImage}) => {
-
-    return(
-
-        <Box align="center">
-
-        <Image boxSize="121px" src={placeholderIcon.src} alt={alt}/>
-
-        <Text color="#808080" size="16px" mt="7px">{textImage} </Text>
-
-        </Box>
-    
-    )
-}
 
 const SpaceType: FC = () => {
 

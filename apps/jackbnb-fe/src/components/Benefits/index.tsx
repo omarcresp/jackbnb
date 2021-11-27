@@ -1,8 +1,7 @@
 import React, {FC} from 'react';
 import { Heading,Box,Stack } from '@chakra-ui/react';
-import Items from './items';
 
-
+import Items from './Items/items';
 
 const Benefits: FC = () => {
 
