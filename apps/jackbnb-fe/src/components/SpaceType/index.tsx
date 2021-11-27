@@ -10,7 +10,6 @@ interface CirclesImageProps{
 
 }
 
-
 const CirclesImage:FC <CirclesImageProps> = ({alt,textImage}) => {
 
     return(
@@ -19,7 +18,7 @@ const CirclesImage:FC <CirclesImageProps> = ({alt,textImage}) => {
 
         <Image boxSize="121px" src={placeholderIcon.src} alt={alt}/>
 
-        <Text color="#808080" size="16px">{textImage} </Text>
+        <Text color="#808080" size="16px" mt="7px">{textImage} </Text>
 
         </Box>
     
