@@ -1,35 +1,37 @@
 import React, {FC} from 'react';
-import {Box,Flex,Heading,Img,Divider} from '@chakra-ui/react';
+import {Box, Flex, Heading, Img, Divider} from '@chakra-ui/react';
 
 import hamburgerButton from '../../assets/icon/hamburger-button.svg';
-import profileIcon from '../../assets/icon/profile-icon.png'
-
+import profileIcon from '../../assets/icon/profile-icon.png';
 
 const NavBar: FC = () => {
- 
   return (
     <>
-
-    <Flex alignItems={'center'} justifyContent={'space-between'}  bg="#D9F2A5" w="100%" h="50px" >
-      
-       <Heading size="18px" ml="15px" color="#000000">
+      <Flex
+        alignItems="center"
+        justifyContent="space-between"
+        bg="#D9F2A5"
+        w="100%"
+        h="50px">
+        <Heading size="18px" ml="15px" color="#000000">
           Brand
         </Heading>
 
-      <Flex alignItems={'center'} justifyContent={'center'} mr="15px"  >
+        <Flex alignItems="center" justifyContent="center" mr="15px">
+          <Img boxSize="16px" src={hamburgerButton.src} />
 
-        <Img boxSize="16px"  src={hamburgerButton.src}  />
-        
-        <Box height="29.5px" >
-        <Divider orientation="vertical" borderColor="#136262" mr="15px" ml="15px" />
-        </Box>
+          <Box height="29.5px">
+            <Divider
+              orientation="vertical"
+              borderColor="#136262"
+              mr="15px"
+              ml="15px"
+            />
+          </Box>
 
-        <Img  boxSize="23px"   src={profileIcon.src} />
-
+          <Img boxSize="23px" src={profileIcon.src} />
+        </Flex>
       </Flex>
-
-   </Flex>
-
     </>
   );
 };
