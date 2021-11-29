@@ -12,7 +12,7 @@
     "@nestjs/core": "^8.0.11",
     "@nestjs/platform-fastify": "^8.0.11",
     "aws-lambda": "^1.0.6",
-    "fastify": "^2.6.0",
+    "fastify": "3.24.0",
     "fastify-cookie": "^5.3.1",
     "passport": "^0.4.0",
     "reflect-metadata": "^0.1.12",

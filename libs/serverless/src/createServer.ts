@@ -1,14 +1,17 @@
-import { NestFactory } from '@nestjs/core';
-import { ValidationPipe } from '@nestjs/common';
-import { NestFastifyApplication, FastifyAdapter } from '@nestjs/platform-fastify';
+import {NestFactory} from '@nestjs/core';
+import {ValidationPipe} from '@nestjs/common';
+import {NestFastifyApplication, FastifyAdapter} from '@nestjs/platform-fastify';
 
-import fastify, { FastifyInstance } from 'fastify';
+import fastify, {FastifyInstance} from 'fastify';
 import fastifyCookie from 'fastify-cookie';
 
-import { AllExceptionsFilter } from '@jackbnb/exception-filter';
+import {AllExceptionsFilter} from '@jackbnb/exception-filter';
 
-export async function createServer(appModule: any, appPrefix: string): Promise<FastifyInstance> {
-  const instance = fastify({ logger: true });
+async function createServer(
+  appModule: unknown,
+  appPrefix: string,
+): Promise<FastifyInstance> {
+  const instance = fastify({logger: true});
 
   const nestApp = await NestFactory.create<NestFastifyApplication>(
     appModule,
@@ -30,3 +33,5 @@ export async function createServer(appModule: any, appPrefix: string): Promise<F
 
   return instance;
 }
+
+export default createServer;

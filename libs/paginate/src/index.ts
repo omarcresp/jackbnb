@@ -1,7 +1,4 @@
-export const paginationPipeline = (
-  page = 1,
-  resultPerPage = 10,
-) => {
+const paginationPipeline = (page = 1, resultPerPage = 10): unknown[] => {
   const limit = resultPerPage;
   const skip = (page - 1) * limit;
 
@@ -53,3 +50,5 @@ export const paginationPipeline = (
     },
   ];
 };
+
+export default paginationPipeline;

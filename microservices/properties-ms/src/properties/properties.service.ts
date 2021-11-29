@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 
-import { paginationPipeline } from '@jackbnb/paginate';
+import paginationPipeline from '@jackbnb/paginate';
 
 import { Model } from 'mongoose';
 
@@ -24,7 +24,7 @@ export class PropertiesService {
       throw new NotFoundException();
     }
 
-    const results = await this.PropertyModel.aggregate(
+    const results = await this.PropertyModel.aggregate<PropertyDocument[]>(
       paginationPipeline(page),
     ).exec();
 
