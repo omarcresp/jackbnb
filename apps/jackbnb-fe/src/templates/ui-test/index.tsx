@@ -1,5 +1,5 @@
 import React from 'react';
-import type { NextPage } from 'next'
+import type {NextPage} from 'next';
 
 import MyTestButton from '../../components/MyTestButton';
 import NavBar from '../../components/NavBar';
@@ -17,7 +17,7 @@ const UiTestPage: NextPage = () => {
       <Benefits></Benefits>
 
     </div>
-  )
+  );
 };
 
 export default UiTestPage;
