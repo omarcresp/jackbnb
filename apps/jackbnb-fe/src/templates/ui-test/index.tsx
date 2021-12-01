@@ -1,5 +1,5 @@
 import React from 'react';
-import type { NextPage } from 'next'
+import type {NextPage} from 'next';
 
 import MyTestButton from '../../components/MyTestButton';
 
@@ -10,7 +10,7 @@ const UiTestPage: NextPage = () => {
 
       <MyTestButton>World</MyTestButton>
     </div>
-  )
+  );
 };
 
 export default UiTestPage;

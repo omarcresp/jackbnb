@@ -7,13 +7,13 @@ describe('<MyTestButton>', () => {
   test('Should mount', () => {
     render(<MyTestButton>jest</MyTestButton>);
 
-    expect(screen.getByText('jest')).toBeInTheDocument();
+    expect(screen.getByText('jest')).toBeVisible();
   });
 
   test('Should click and show message', () => {
     render(<MyTestButton>jest</MyTestButton>);
 
     fireEvent.click(screen.getByText('jest'));
-    expect(screen.getByText('hidden message')).toBeInTheDocument();
+    expect(screen.getByText('hidden message')).toBeVisible();
   });
 });
