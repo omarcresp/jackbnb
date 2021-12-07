@@ -1,0 +1,10 @@
+.myContainer {
+  display: flex;
+  justify-content: center;
+}
+.list{
+    list-style: none;
+}
+.listItems {
+    margin-top: 21px;
+  }

@@ -3,11 +3,10 @@ import {Button, Img, Box, Divider} from '@chakra-ui/react';
 
 interface IconButtonProps {
   icon: string;
-  marginLeft: string;
   title: string;
 }
 
-const IconButton: FC<IconButtonProps> = ({icon, marginLeft, title}) => {
+const IconButton: FC<IconButtonProps> = ({title, icon}) => {
   return (
     <>
       <Button
@@ -18,15 +17,11 @@ const IconButton: FC<IconButtonProps> = ({icon, marginLeft, title}) => {
         fontSize="18px"
         color="#136262"
         justifyContent="flex-start">
-        <Img src={icon} />
-
+        <Box width="43px">
+          <Img src={icon} />
+        </Box>
         <Box height="30px">
-          <Divider
-            orientation="vertical"
-            borderColor="#808080"
-            mr="10px"
-            ml={marginLeft}
-          />
+          <Divider orientation="vertical" borderColor="#808080" mr="10px" />
         </Box>
 
         {title}
