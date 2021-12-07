@@ -7,12 +7,13 @@ interface ItemsProps {
   alt: string;
   title: string;
   description: string;
+  placeHolderImage?: string;
 }
 
-const Items: FC<ItemsProps> = ({alt, title, description}) => {
+const Items: FC<ItemsProps> = ({placeHolderImage, alt, title, description}) => {
   return (
     <Flex align="center">
-      <Image src={placeHolderIcon.src} boxSize="49px" alt={alt} />
+      <Image src={placeHolderImage} boxSize="49px" alt={alt} />
 
       <Box ml="10px">
         <Text size="18px" color="#000000" fontWeight="bold">
@@ -25,6 +26,10 @@ const Items: FC<ItemsProps> = ({alt, title, description}) => {
       </Box>
     </Flex>
   );
+};
+
+Items.defaultProps = {
+  placeHolderImage: placeHolderIcon.src,
 };
 
 export default Items;

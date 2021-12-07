@@ -14,15 +14,15 @@ const SpaceType: FC = () => {
       </Box>
 
       <div className={SpaceTypeStyles.myContainer_items}>
-        <CirclesImage alt="zona verde" textImage="Zonas Verdes" />
+        <CirclesImage alt="Zonas verdes" textImage="Zonas Verdes" />
 
-        <CirclesImage alt="zona urbana" textImage="Zonas Urbanas" />
+        <CirclesImage alt="Zonas urbanas" textImage="Zonas Urbanas" />
 
-        <CirclesImage alt="biblioteca" textImage="Biblioteca" />
+        <CirclesImage alt="Biblioteca" textImage="Biblioteca" />
 
-        <CirclesImage alt="oficina" textImage="Oficina" />
+        <CirclesImage alt="Oficina" textImage="Oficina" />
 
-        <CirclesImage alt="coworking" textImage="Coworking" />
+        <CirclesImage alt="Coworking" textImage="Coworking" />
       </div>
     </div>
   );

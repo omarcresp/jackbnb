@@ -8,15 +8,14 @@ import Benefits from '../../components/Benefits';
 
 const UiTestPage: NextPage = () => {
   return (
-    <div>
+    <>
       <h1>Hello</h1>
 
       <MyTestButton>World</MyTestButton>
-      <NavBar></NavBar>
-      <SpaceType></SpaceType>
-      <Benefits></Benefits>
-
-    </div>
+      <NavBar />
+      <SpaceType />
+      <Benefits />
+    </>
   );
 };
 

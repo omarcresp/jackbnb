@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {Heading, Box, Stack} from '@chakra-ui/react';
 
-import Items from './Items/items';
+import Items from './Items';
 
 const Benefits: FC = () => {
   return (
@@ -22,9 +22,9 @@ const Benefits: FC = () => {
             title="Mayor Creatividad"
             description="Lorem ipsum dolor sit ame"
           />
-          1
+
           <Items
-            alt="experincia"
+            alt="experiencia"
             title="Experiencia"
             description="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
           />
