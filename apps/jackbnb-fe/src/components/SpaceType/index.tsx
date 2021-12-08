@@ -5,6 +5,14 @@ import SpaceTypeStyles from './index.module.css';
 import CirclesImage from './CirclesImage/circlesImage';
 
 const SpaceType: FC = () => {
+  const images = [
+    {alt: 'Zonas verdes', textImage: 'Zonas Verdes'},
+    {alt: 'Zonas urbanas', textImage: 'Zonas Urbanas'},
+    {alt: 'Biblioteca', textImage: 'Biblioteca'},
+    {alt: 'Oficina', textImage: 'Oficina'},
+    {alt: 'Coworking', textImage: 'Coworking'},
+  ];
+
   return (
     <div className={SpaceTypeStyles.myContainer}>
       <Box mt="47px" mb="24px">
@@ -12,18 +20,13 @@ const SpaceType: FC = () => {
           ¿Qué espacio estás buscando?
         </Heading>
       </Box>
-
-      <div className={SpaceTypeStyles.myContainer_items}>
-        <CirclesImage alt="Zonas verdes" textImage="Zonas Verdes" />
-
-        <CirclesImage alt="Zonas urbanas" textImage="Zonas Urbanas" />
-
-        <CirclesImage alt="Biblioteca" textImage="Biblioteca" />
-
-        <CirclesImage alt="Oficina" textImage="Oficina" />
-
-        <CirclesImage alt="Coworking" textImage="Coworking" />
-      </div>
+      <ul className={SpaceTypeStyles.myContainerItems}>
+        {images.map((image) => (
+          <li key={image.textImage} className={SpaceTypeStyles.list}>
+            <CirclesImage alt={image.alt} textImage={image.textImage} />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

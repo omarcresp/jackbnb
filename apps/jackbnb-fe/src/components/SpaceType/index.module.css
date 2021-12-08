@@ -3,17 +3,21 @@
   overflow-x: hidden;
 }
 
-.myContainer_items {
-    display: grid;
-    grid-template-columns: repeat(5,121px);
-    width: 100%;
-    grid-gap: 10px;
-    overflow-x: scroll;
-    margin-left: 15px;
+.myContainerItems {
+  display: grid;
+  grid-template-columns: repeat(5,121px);
+  width: 100%;
+  grid-gap: 10px;
+  overflow-x: scroll;
+  margin-left: 15px;
   }
 
-  .myContainer_items::-webkit-scrollbar{
-    height: 0px;
+.list{
+  list-style: none;
+}
+
+.myContainerItems::-webkit-scrollbar{
+  height: 0px;
   } 
 
   
