@@ -1,7 +1,7 @@
 import React, {FC, useState} from 'react';
-import { Button } from "@chakra-ui/react";
+import {Button} from '@chakra-ui/react';
 
-import MyTestButtonStyles from './index.module.css'
+import MyTestButtonStyles from './index.module.css';
 
 const MyTestButton: FC = ({children}) => {
   const [message, setMessage] = useState('');

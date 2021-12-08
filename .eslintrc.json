@@ -1,0 +1,29 @@
+{
+  "extends": ["airbnb-typescript-prettier"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["prettier"],
+  "rules": {
+    "react/jsx-props-no-spreading": "off",
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "multiline-block-like" },
+      { "blankLine": "always", "prev": "multiline-block-like", "next": "*" },
+      { "blankLine": "always", "prev": "*", "next": ["const", "let", "export"] },
+      { "blankLine": "always", "prev": ["const", "let", "export"], "next": "*" },
+      {
+        "blankLine": "any",
+        "prev": ["const", "let", "export"],
+        "next": ["const", "let", "export"]
+      },
+      { "blankLine": "always", "prev": "*", "next": "return" }
+    ],
+    "no-plusplus": [2, {
+      "allowForLoopAfterthoughts": true
+    }],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.spec.tsx", "**/*.spec.ts"]}],
+    "prefer-destructuring": ["error", {"object": true, "array": false}],
+    "prettier/prettier": "error"
+  }
+}

@@ -15,7 +15,7 @@ const UiTestPage: NextPage = () => {
       <Card /> 
       <PrimaryButton /> 
     </div>
-  )
+  );
 };
 
 export default UiTestPage;

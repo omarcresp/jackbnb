@@ -18,6 +18,8 @@ jobs:
         run: npm i -g lerna
       - name: bootstrap
         run: lerna bootstrap
+      - name: build
+        run: lerna run build
       - name: run tests
         run: lerna run test --stream --no-sort
       - name: SonarCloud Scan

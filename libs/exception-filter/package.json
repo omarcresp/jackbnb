@@ -1,0 +1,17 @@
+{
+  "name": "@jackbnb/exception-filter",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "fastify": "3.24.0"
+  },
+  "dependencies": {
+    "@nestjs/common": "^8.0.11",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^7.1.0"
+  }
+}
