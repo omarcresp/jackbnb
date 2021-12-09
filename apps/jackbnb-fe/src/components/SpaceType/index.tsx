@@ -4,7 +4,7 @@ import {Heading, Box} from '@chakra-ui/react';
 import SpaceTypeStyles from './index.module.css';
 import CirclesImage from './CirclesImage/circlesImage';
 
-const images = [
+const IMAGES = [
   {alt: 'Zonas verdes', textImage: 'Zonas Verdes'},
   {alt: 'Zonas urbanas', textImage: 'Zonas Urbanas'},
   {alt: 'Biblioteca', textImage: 'Biblioteca'},
@@ -21,10 +21,11 @@ const SpaceType: FC = () => {
           ¿Qué espacio estás buscando?
         </Heading>
       </Box>
+      
       <ul className={SpaceTypeStyles.spaceTypeItems}>
-        {images.map((image) => (
-          <li key={image.textImage} className={SpaceTypeStyles.spaceTypeList}>
-            <CirclesImage alt={image.alt} textImage={image.textImage} />
+        {IMAGES.map((IMAGE) => (
+          <li key={IMAGE.textImage} className={SpaceTypeStyles.spaceTypeList}>
+            <CirclesImage alt={IMAGE.alt} textImage={IMAGE.textImage} />
           </li>
         ))}
       </ul>

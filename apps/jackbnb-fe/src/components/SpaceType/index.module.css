@@ -5,7 +5,7 @@
 
 .spaceTypeItems {
   display: grid;
-  grid-template-columns: repeat(5,121px);
+  grid-template-columns: repeat(5, 121px);
   width: 100%;
   grid-gap: 10px;
   overflow-x: scroll;
@@ -16,8 +16,5 @@
   list-style: none;
 }
 
-.spaceTypeItems::-webkit-scrollbar{
-  height: 0px;
-  } 
 
   
