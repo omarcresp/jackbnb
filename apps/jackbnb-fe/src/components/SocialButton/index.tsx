@@ -8,20 +8,21 @@ import appleIcon from '../../assets/icon/apple.svg';
 import IconButton from '../IconButton';
 import SocialButtonStyles from './index.module.css';
 
-const SocialButton: FC = () => {
-  const buttons = [
-    {title: 'Ingresa por correo electrónico', icon: emailIcon.src},
-    {title: 'Continúa con Google', icon: googleIcon.src},
-    {title: 'Continúa con Facebook', icon: facebookIcon.src},
-    {title: 'Continúa con Apple', icon: appleIcon.src},
-  ];
+const buttons = [
+  {title: 'Ingresa por correo electrónico', icon: emailIcon.src},
+  {title: 'Continúa con Google', icon: googleIcon.src},
+  {title: 'Continúa con Facebook', icon: facebookIcon.src},
+  {title: 'Continúa con Apple', icon: appleIcon.src},
+];
 
+const SocialButton: FC = () => {
+  
   return (
     <>
-      <div className={SocialButtonStyles.myContainer}>
-        <ul className={SocialButtonStyles.list}>
+      <div className={SocialButtonStyles.socialButtonContainer}>
+        <ul className={SocialButtonStyles.buttonList}>
           {buttons.map((button) => (
-            <li key={button.title} className={SocialButtonStyles.listItems}>
+            <li key={button.title} className={SocialButtonStyles.buttonItem}>
               <IconButton title={button.title} icon={button.icon} />
             </li>
           ))}
