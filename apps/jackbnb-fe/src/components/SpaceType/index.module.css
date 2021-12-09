@@ -1,9 +1,9 @@
 
-.myContainer{
+.spaceTypeContainer{
   overflow-x: hidden;
 }
 
-.myContainerItems {
+.spaceTypeItems {
   display: grid;
   grid-template-columns: repeat(5,121px);
   width: 100%;
@@ -12,11 +12,11 @@
   margin-left: 15px;
   }
 
-.list{
+.spaceTypeList{
   list-style: none;
 }
 
-.myContainerItems::-webkit-scrollbar{
+.spaceTypeItems::-webkit-scrollbar{
   height: 0px;
   } 
 

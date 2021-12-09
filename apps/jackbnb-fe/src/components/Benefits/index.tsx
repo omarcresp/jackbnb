@@ -2,26 +2,27 @@ import React, {FC} from 'react';
 import {Heading, Box} from '@chakra-ui/react';
 
 import Items from './Items';
-import ItemsStyle from './index.module.css';
+import BenefitsStyle from './index.module.css';
+
+const items = [
+  {
+    alt: 'mayor creatividad',
+    title: 'Mayor Creatividad',
+    description: 'Lorem ipsum dolor sit ame',
+  },
+  {
+    alt: 'experiencia',
+    title: 'Experiencia',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+  },
+  {
+    alt: 'servicio excelente',
+    title: 'Servicio Excelente',
+    description: 'Lorem ipsum dolor',
+  },
+];
 
 const Benefits: FC = () => {
-  const items = [
-    {
-      alt: 'mayor creatividad',
-      title: 'Mayor Creatividad',
-      description: 'Lorem ipsum dolor sit ame',
-    },
-    {
-      alt: 'experiencia',
-      title: 'Experiencia',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-    },
-    {
-      alt: 'servicio excelente',
-      title: 'Servicio Excelente',
-      description: 'Lorem ipsum dolor',
-    },
-  ];
 
   return (
     <>
@@ -36,7 +37,7 @@ const Benefits: FC = () => {
         </Heading>
         <ul>
           {items.map((item) => (
-            <li key={item.title} className={ItemsStyle.list}>
+            <li key={item.title} className={BenefitsStyle.itemsList}>
               <Items
                 alt={item.alt}
                 title={item.title}

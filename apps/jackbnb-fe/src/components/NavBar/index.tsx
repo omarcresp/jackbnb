@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {Box, Flex, Heading, Img, Divider} from '@chakra-ui/react';
 
 import hamburgerButton from '../../assets/icon/hamburger-button.svg';
-// TODO: Use the svg version of the icon because the actual svg version is broken
+// TODO: Use the png version of the icon because the actual svg version is broken
 import profileIcon from '../../assets/icon/profile-icon.png';
 
 const NavBar: FC = () => {
