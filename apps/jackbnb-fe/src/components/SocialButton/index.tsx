@@ -8,7 +8,7 @@ import appleIcon from '../../assets/icon/apple.svg';
 import IconButton from '../IconButton';
 import SocialButtonStyles from './index.module.css';
 
-const buttons = [
+const BUTTONS = [
   {title: 'Ingresa por correo electrónico', icon: emailIcon.src},
   {title: 'Continúa con Google', icon: googleIcon.src},
   {title: 'Continúa con Facebook', icon: facebookIcon.src},
@@ -21,9 +21,9 @@ const SocialButton: FC = () => {
     <>
       <div className={SocialButtonStyles.socialButtonContainer}>
         <ul className={SocialButtonStyles.buttonList}>
-          {buttons.map((button) => (
-            <li key={button.title} className={SocialButtonStyles.buttonItem}>
-              <IconButton title={button.title} icon={button.icon} />
+          {BUTTONS.map((BUTTON) => (
+            <li key={BUTTON.title} className={SocialButtonStyles.buttonItem}>
+              <IconButton title={BUTTON.title} icon={BUTTON.icon} />
             </li>
           ))}
         </ul>
