@@ -4,7 +4,7 @@ import {Heading, Box} from '@chakra-ui/react';
 import Items from './Items';
 import BenefitsStyle from './index.module.css';
 
-const ITEMS = [
+const BENEFITITEMS = [
   {
     alt: 'mayor creatividad',
     title: 'Mayor Creatividad',
@@ -23,7 +23,6 @@ const ITEMS = [
 ];
 
 const Benefits: FC = () => {
-
   return (
     <>
       <Box m="44px 15px 0px 15px">
@@ -35,14 +34,14 @@ const Benefits: FC = () => {
           mb="40px">
           ¿Porqué te conviene cambiar tu lugar de trabajo?
         </Heading>
-        
+
         <ul>
-          {ITEMS.map((ITEM) => (
-            <li key={ITEM.title} className={BenefitsStyle.itemsList}>
+          {BENEFITITEMS.map((BENEFITITEM) => (
+            <li key={BENEFITITEM.title} className={BenefitsStyle.itemsList}>
               <Items
-                alt={ITEM.alt}
-                title={ITEM.title}
-                description={ITEM.description}
+                alt={BENEFITITEM.alt}
+                title={BENEFITITEM.title}
+                description={BENEFITITEM.description}
               />
             </li>
           ))}

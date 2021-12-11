@@ -25,8 +25,7 @@ const NavBar: FC = () => {
             <Divider
               orientation="vertical"
               borderColor="#136262"
-              mr="15px"
-              ml="15px"
+              m="0px 15px"
             />
           </Box>
 
