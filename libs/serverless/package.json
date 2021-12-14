@@ -1,5 +1,5 @@
 {
-  "name": "@jackbnb/serverless",
+  "name": "@wermote/serverless",
   "version": "0.1.0",
   "main": "dist/index.js",
   "license": "MIT",
@@ -7,7 +7,7 @@
     "build": "tsc"
   },
   "dependencies": {
-    "@jackbnb/exception-filter": "^1.0.0",
+    "@wermote/exception-filter": "^1.0.0",
     "@nestjs/common": "^8.0.11",
     "@nestjs/core": "^8.0.11",
     "@nestjs/platform-fastify": "^8.0.11",
