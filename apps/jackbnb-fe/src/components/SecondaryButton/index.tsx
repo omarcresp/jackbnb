@@ -9,7 +9,7 @@ interface FormButtonProps {
 
 const FormButton: FC <FormButtonProps> = ({children, width, Link}) => {
     return (
-      <Button size="md" text-align="center" spacing={4} bg="#45B39D" h="50px" onClick={Link} width={width ? 'inherit' : 'unset'}>
+      <Button m="10px" text-align="center" spacing={4} bg="#45B39D" h="50px" onClick={Link} width={width ? 'inherit' : 'unset'}>
            { children }
       </Button>
     );

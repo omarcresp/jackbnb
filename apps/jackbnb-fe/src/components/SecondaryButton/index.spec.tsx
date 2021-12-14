@@ -1,39 +1,18 @@
-import React from react
-import {render, fireEvent} from '@testing-library/jest-dom/extend-expect';
-
-
+import React from "react"
+import {render, fireEvent, screen} from '@testing-library/react';
 import FormButton from '.';
-import { Button } from '@chakra-ui/button';
 
-//renderiza
-test('renderizado', () => {
-    const ButtonForm = {
-      content: 'esto es un test de renderizado',
-      important: true
-    }
-    const component = render(<ButtonForm button={Button} />)
-  
-    component.getByText('esto es un boton')
-    component.getByText('make important')
+//bueno, testeando el secondaryButton voy a hacer lo que me enseño el omar :D
+describe ('formButton', () => {
+  test('should mount', () => {
+    render (<FormButton onClick={jest.fn()}/>);
+
+    expect(screen.getByText('moco')).toBeVisible();
+  });
+})
+
+test('click the button', () => {
+  render (<FormButton onClick={jest.fn()}> hola <FormButton/>);
+
+       expect(fireEvent.click(getByText.('moco'));
   })
-
-
-//evento onClick
-
-test('testeando evento onclick', ()=>{
-    const buttonProp = {
-      content: 'esto es un test',
-      important: true
-    }
-  
-    const mockHandler = jest.fn()
-  
-    const component = render(<FormbuttonProp buttonProp={buttonProp} buttonProp={mockHandler} />)
-  
-    const button = component.getByText('esto es un boton')
-    fireEvent.click(button)
-  })
-
-
-
-
