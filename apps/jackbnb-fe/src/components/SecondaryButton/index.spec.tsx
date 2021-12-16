@@ -9,10 +9,23 @@ describe ('formButton', () => {
 
     expect(screen.getByText('moco')).toBeVisible();
   });
+
+  test('Should call the onClick', () => {
+    const onClick = jest.fn();
+
+    render(<FormButton onClick={onClick}>Hola</FormButton>);
+
+    fireEvent.click(screen.getByText('Hola'));
+
+    expect(onClick).toBeCalled();
+  });
+
+
+  test('click the button', () => {
+    render (<FormButton onClick={jest.fn()}> hola </FormButton>);
+
+      fireEvent.click(screen.getByText('moco'));
+
+      expect(screen.getByText('hidden mesagge')).toBeVisible();
+    })
 })
-
-test('click the button', () => {
-  render (<FormButton onClick={jest.fn()}> hola <FormButton/>);
-
-       expect(fireEvent.click(getByText.('moco'));
-  })

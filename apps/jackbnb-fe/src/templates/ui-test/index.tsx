@@ -9,7 +9,7 @@ const UiTestPage: NextPage = () => {
     <div>
       <Footer />
       <Card />
-      <PrimaryButton fitParent={true}/>
+      <PrimaryButton children={'Continuar'} fitParent={true}/>
     </div>
   );
 };

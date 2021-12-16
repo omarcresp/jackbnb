@@ -8,10 +8,28 @@ describe('<PrimaryButton/>', () => {
 
       expect(screen.getByText('hola')).toBeVisible();
     });
+
+    test('Should call the onClick', () => {
+      const onClick = jest.fn();
+
+      render(<PrimaryButton onClick={onClick}>Hola</PrimaryButton>);
+
+      fireEvent.click(screen.getByText('Hola'));
+
+      expect(onClick).toBeCalled();
+    });
+
+
+    test('click the button', () => {
+      render (<PrimaryButton onClick={jest.fn()}> hola </PrimaryButton>);
+
+           expect(fireEvent.click(getByText('hola')).toBeVisible();
+      })
+
+
+
+
+
 })
 
-test('click the button', () => {
-render (<PrimaryButton onClick={jest.fn()}> hola <PrimaryButton/>);
 
-     expect(fireEvent.click(getByText.('hola'));
-})
