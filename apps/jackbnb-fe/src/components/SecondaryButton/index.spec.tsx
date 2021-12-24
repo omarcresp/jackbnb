@@ -5,9 +5,9 @@ import FormButton from '.';
 //bueno, testeando el secondaryButton voy a hacer lo que me enseño el omar :D
 describe ('formButton', () => {
   test('should mount', () => {
-    render (<FormButton onClick={jest.fn()}/>);
+    render (<FormButton onClick={jest.fn()}> hola </FormButton>);
 
-    expect(screen.getByText('moco')).toBeVisible();
+    expect(screen.getByText('hola')).toBeVisible();
   });
 
   test('Should call the onClick', () => {

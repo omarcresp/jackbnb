@@ -3,6 +3,8 @@ import type { NextPage } from 'next'
 import Card from '../../components/Card'
 import Footer from '../../components/Footer'
 import PrimaryButton from '../../components/PrimaryButton'
+import Header from '../../components/Header'
+
 
 const UiTestPage: NextPage = () => {
   return (
@@ -10,6 +12,7 @@ const UiTestPage: NextPage = () => {
       <Footer />
       <Card />
       <PrimaryButton children={'Continuar'} fitParent={true}/>
+      <Header />
     </div>
   );
 };

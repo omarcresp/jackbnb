@@ -3,10 +3,10 @@ import {Button} from '@chakra-ui/react';
 
 interface PrimaryButtonProps {
   fitParent?: boolean;
-  onClick: => () void;
+  onClick: () => void;
 }
 
-const PrimaryButton: FC<PrimaryButtonProps> = ({children, fitParent}) => {
+const PrimaryButton: FC<PrimaryButtonProps> = ({children, fitParent, onClick}) => {
   return (
     <Button
       bg="#58DE15"
@@ -14,7 +14,7 @@ const PrimaryButton: FC<PrimaryButtonProps> = ({children, fitParent}) => {
       radio="10px"
       text-align="center"
       p="10px"
-      onClick={}
+      onClick={onClick}
       width={fitParent ? 'inherit' : 'unset'}>
       {children}
     </Button>

@@ -7,6 +7,6 @@ describe('<UiTestPage>', () => {
   test('Should mount', () => {
     render(<UiTestPage />);
 
-    expect(screen.getByText('Hello')).toBeInTheDocument();
+    expect(screen.getByText('continuar')).toBeInTheDocument();
   });
 });
