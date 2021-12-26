@@ -8,7 +8,7 @@ describe ('<Card />', () => {
   test('should mount', () =>{
     render( <Card/> )
 
-    expect(screen.getByText('el trabajo')).toBeInTheDocument();
+    expect(screen.getByText('El trabajo')).toBeInTheDocument();
   })
 })
 

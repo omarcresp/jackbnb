@@ -15,8 +15,9 @@ const PrimaryButton: FC<PrimaryButtonProps> = ({children, fitParent, onClick}) =
       text-align="center"
       p="10px"
       onClick={onClick}
-      width={fitParent ? 'inherit' : 'unset'}>
-      {children}
+      width={fitParent ? 'inherit' : 'unset'}
+      onClick={onClick}>
+      Continuar
     </Button>
   );
 };

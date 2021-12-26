@@ -24,8 +24,8 @@ describe ('formButton', () => {
   test('click the button', () => {
     render (<FormButton onClick={jest.fn()}> hola </FormButton>);
 
-      fireEvent.click(screen.getByText('moco'));
+      fireEvent.click(screen.getByText('hola'));
 
-      expect(screen.getByText('hidden mesagge')).toBeVisible();
+      expect(screen.getByText('hola')).toBeVisible();
     })
 })

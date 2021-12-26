@@ -6,15 +6,15 @@ describe('<PrimaryButton/>', () => {
     test('should mount' , () => {
       render (<PrimaryButton  onClick={jest.fn()}> hola </PrimaryButton>);
 
-      expect(screen.getByText('hola')).toBeVisible();
+      expect(screen.getByText('Continuar')).toBeVisible();
     });
 
     test('Should call the onClick', () => {
       const onClick = jest.fn();
 
-      render(<PrimaryButton onClick={onClick}> Hola </PrimaryButton>);
+      render(<PrimaryButton onClick={onClick}/>);
 
-      fireEvent.click(screen.getByText('Hola'));
+      fireEvent.click(screen.getByText('Continuar'));
 
       expect(onClick).toBeCalled();
     });

@@ -8,6 +8,6 @@ describe('<Footer/>', () =>{
   test('should mount', () =>{
     render( <Footer/>)
 
-    expect(screen.getByText('colaboradores')).toBeInTheDocument();
+    expect(screen.getByText('Colaboradores')).toBeInTheDocument();
   })
 })
