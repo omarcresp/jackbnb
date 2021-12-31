@@ -2,7 +2,7 @@ import React from 'react';
 import type {NextPage} from 'next';
 
 import MyTestButton from '../../components/MyTestButton';
-import SocialButton from '../../components/SocialButton';
+import SocialButtons from '../../components/SocialButtons';
 
 const UiTestPage: NextPage = () => {
   return (
@@ -11,7 +11,7 @@ const UiTestPage: NextPage = () => {
 
       <MyTestButton>World</MyTestButton>
 
-      <SocialButton />
+      <SocialButtons />
     </>
   );
 };

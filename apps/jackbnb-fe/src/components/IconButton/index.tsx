@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import React, {FC} from 'react';
 import {Button, Img, Box, Divider} from '@chakra-ui/react';
 
@@ -20,11 +21,12 @@ const IconButton: FC<IconButtonProps> = ({title, icon}) => {
         <Box width="43px">
           <Img src={icon} />
         </Box>
+
         <Box height="30px">
           <Divider orientation="vertical" borderColor="#808080" mr="10px" />
         </Box>
-
-        {title}
+        
+        <span>{title}</span>
       </Button>
     </>
   );
