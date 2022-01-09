@@ -1,4 +1,4 @@
-.container{
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -9,11 +9,9 @@
     width:450px;
     padding: 50px;
     box-shadow: 10px 9px 103px 138px rgba(31,8,8,0.27) inset;
-    -webkit-box-shadow: 10px 9px 103px 138px rgba(31,8,8,0.27) inset;
-    -moz-box-shadow: 10px 9px 103px 138px rgba(31,8,8,0.27) inset;
 }
 
-.h1{
+.h1 {
     color: white;
     font-size: 25px;
     text-align: 100px;
@@ -21,7 +19,7 @@
     font-weight: 800;
 }
 
-.tr{
+.tr {
     color: greenyellow;
     text-decoration: underline;
     text-decoration-color: greenyellow;

@@ -12,6 +12,7 @@ const UiTestPage: NextPage = () => {
       <Footer />
       <Card />
       <PrimaryButton children={'Continuar'} fitParent={true}/>
+      <FormButton  children={'hola'}  />
       <Header />
     </div>
   );
