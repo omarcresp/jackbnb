@@ -18,7 +18,7 @@ const CirclesImage: FC<CirclesImageProps> = ({
     <Box align="center">
       <Image boxSize="121px" src={placeholderImage} alt={alt} />
 
-      <Text color="#808080" size="16px" mt="7px">
+      <Text color="#808080" size="16px" mt="7px" mb="9px">
         {textImage}
       </Text>
     </Box>
