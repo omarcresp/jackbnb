@@ -14,7 +14,6 @@ const PrimaryButton: FC<PrimaryButtonProps> = ({children, fitParent, onClick}) =
       radio="10px"
       text-align="center"
       p="10px"
-      onClick={onClick}
       width={fitParent ? 'inherit' : 'unset'}
       onClick={onClick}>
       Continuar
