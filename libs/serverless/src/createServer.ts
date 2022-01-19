@@ -5,7 +5,7 @@ import {NestFastifyApplication, FastifyAdapter} from '@nestjs/platform-fastify';
 import fastify, {FastifyInstance} from 'fastify';
 import fastifyCookie from 'fastify-cookie';
 
-import {AllExceptionsFilter} from '@jackbnb/exception-filter';
+import {AllExceptionsFilter} from '@wermote/exception-filter';
 
 async function createServer(
   appModule: unknown,

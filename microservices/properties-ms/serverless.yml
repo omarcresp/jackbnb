@@ -1,4 +1,4 @@
-service: jackbnb-properties
+service: wermote-properties
 useDotenv: true
 
 custom:

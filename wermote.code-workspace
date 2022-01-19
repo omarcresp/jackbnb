@@ -1,23 +1,23 @@
 {
   "folders": [
     {
-      "name": "✨ jackbnb",
+      "name": "✨ wermote",
       "path": "."
     },
     {
-      "name": "🚀 jackbnb-portal",
+      "name": "🚀 wermote-portal",
       "path": "apps/jackbnb-fe"
     },
     {
-      "name": "⚙️ @jackbnb/exception-filter",
+      "name": "⚙️ @wermote/exception-filter",
       "path": "libs/exception-filter"
     },
     {
-      "name": "⚙️ @jackbnb/paginate",
+      "name": "⚙️ @wermote/paginate",
       "path": "libs/paginate"
     },
     {
-      "name": "⚙️ @jackbnb/serverless",
+      "name": "⚙️ @wermote/serverless",
       "path": "libs/serverless"
     },
     {
@@ -29,7 +29,6 @@
       "path": "microservices/properties-ms"
     }
   ],
-  "settings": {},
   "extensions": {
     "recommendations": [
       "formulahendry.auto-close-tag",
@@ -54,6 +53,11 @@
       "gruntfuggly.todo-tree",
       "richie5um2.vscode-sort-json",
       "2gua.rainbow-brackets"
+    ]
+  },
+  "settings": {
+    "cSpell.words": [
+      "wermote"
     ]
   }
 }
