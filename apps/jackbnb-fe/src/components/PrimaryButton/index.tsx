@@ -6,7 +6,11 @@ interface PrimaryButtonProps {
   onClick: () => void;
 }
 
-const PrimaryButton: FC<PrimaryButtonProps> = ({children, fitParent, onClick}) => {
+const PrimaryButton: FC<PrimaryButtonProps> = ({
+  children,
+  fitParent,
+  onClick,
+}) => {
   return (
     <Button
       bg="#58DE15"
@@ -16,7 +20,7 @@ const PrimaryButton: FC<PrimaryButtonProps> = ({children, fitParent, onClick}) =
       p="10px"
       width={fitParent ? 'inherit' : 'unset'}
       onClick={onClick}>
-      Continuar
+      {children}
     </Button>
   );
 };
