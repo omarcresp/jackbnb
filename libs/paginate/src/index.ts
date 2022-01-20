@@ -1,4 +1,6 @@
-const paginationPipeline = (page = 1, resultPerPage = 10): unknown[] => {
+import {PipelineStage} from 'mongoose';
+
+const paginationPipeline = (page = 1, resultPerPage = 10): PipelineStage[] => {
   const limit = resultPerPage;
   const skip = (page - 1) * limit;
 
