@@ -16,7 +16,7 @@ const UiTestPage: NextPage = () => {
       <Footer />
       <Card />
       <PrimaryButton children={'Continuar'} fitParent={true} onClick={click} />
-      <FormButton  children={'hola'}/>
+      <FormButton  children={'hola'} onClick={click}/>
       <Header />
     </div>
   );
