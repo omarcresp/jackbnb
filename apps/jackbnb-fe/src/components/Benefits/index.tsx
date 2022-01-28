@@ -1,7 +1,7 @@
 import React, {FC} from 'react';
 import {Heading, Box} from '@chakra-ui/react';
 
-import Items from './Items';
+import Items from '../Items';
 import BenefitsStyle from './index.module.css';
 
 const BENEFIT_ITEMS = [
