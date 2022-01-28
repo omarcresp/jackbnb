@@ -1,8 +1,6 @@
 import React from 'react';
 import type {NextPage} from 'next';
 
-import SocialButtons from '../../components/SocialButtons';
-
 const UiTestPage: NextPage = () => {
   return (
     <>
