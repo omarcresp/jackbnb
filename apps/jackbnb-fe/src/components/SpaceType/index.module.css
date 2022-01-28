@@ -1,0 +1,17 @@
+
+.spaceTypeContainer{
+  overflow-x: hidden;
+}
+
+.spaceTypeItems {
+  display: grid;
+  grid-template-columns: repeat(5, 121px);
+  width: 100%;
+  grid-gap: 10px;
+  overflow-x: scroll;
+  margin-left: 15px;
+}
+
+.spaceTypeList {
+  list-style: none;
+}
