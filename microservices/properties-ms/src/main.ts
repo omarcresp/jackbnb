@@ -2,7 +2,7 @@ import { ProxyHandler } from 'aws-lambda';
 import { proxy } from 'aws-serverless-fastify';
 import { FastifyInstance } from 'fastify';
 
-import { createServer } from '@jackbnb/serverless';
+import { createServer } from '@wermote/serverless';
 
 import { AppModule } from './app.module';
 

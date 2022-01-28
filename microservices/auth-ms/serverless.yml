@@ -1,4 +1,4 @@
-service: jackbnb-auth
+service: wermote-auth
 useDotenv: true
 
 custom:

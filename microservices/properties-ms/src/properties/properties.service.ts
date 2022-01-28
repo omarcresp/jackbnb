@@ -1,7 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 
-import paginationPipeline from '@jackbnb/paginate';
+import paginationPipeline from '@wermote/paginate';
 
 import { Model } from 'mongoose';
 
