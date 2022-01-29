@@ -2,33 +2,41 @@ import React, {FC} from 'react';
 import {Heading, Box} from '@chakra-ui/react';
 
 import Items from '../Items';
+
+import creatividadIcon from '../../assets/icon/benefits/creatividad.svg';
+import experienciaIcon from '../../assets/icon/benefits/experiencia.svg';
+import servicioIcon from '../../assets/icon/benefits/servicio.svg';
 import BenefitsStyle from './index.module.css';
 
 const BENEFIT_ITEMS = [
   {
     alt: 'mayor creatividad',
     title: 'Mayor Creatividad',
-    description: 'Lorem ipsum dolor sit ame',
+    description: 'Lorem ipsum dolor sit amet te eleifend',
+    imageUrl: creatividadIcon.src,
   },
   {
     alt: 'experiencia',
     title: 'Experiencia',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+    imageUrl: experienciaIcon.src,
   },
   {
     alt: 'servicio excelente',
     title: 'Servicio Excelente',
-    description: 'Lorem ipsum dolor',
+    description: 'Lorem ipsum dolor sit amet',
+    imageUrl: servicioIcon.src,
   },
 ];
 
 const Benefits: FC = () => {
   return (
     <>
-      <Box m="44px 15px 0px 15px">
+      <Box mt="32px" mx="15px">
         <Heading
-          as="h2"
-          size="22px"
+          as="h3"
+          fontSize="22px"
+          mx="7px"
           color="#000000"
           textAlign="center"
           mb="40px">
@@ -42,6 +50,7 @@ const Benefits: FC = () => {
                 alt={benefitItem.alt}
                 title={benefitItem.title}
                 description={benefitItem.description}
+                imageUrl={benefitItem.imageUrl}
               />
             </li>
           ))}

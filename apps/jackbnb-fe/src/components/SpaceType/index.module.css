@@ -5,13 +5,14 @@
 
 .spaceTypeItems {
   display: grid;
-  grid-template-columns: repeat(5, 121px);
+  grid-auto-flow: column;
+  grid-auto-columns: 121px;
   width: 100%;
-  grid-gap: 10px;
   overflow-x: scroll;
   margin-left: 15px;
 }
 
 .spaceTypeList {
   list-style: none;
+  margin-right: 15px;
 }

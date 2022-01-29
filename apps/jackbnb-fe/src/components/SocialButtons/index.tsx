@@ -10,9 +10,9 @@ import SocialButtonStyles from './index.module.css';
 
 const SOCIAL_BUTTONS = [
   {title: 'Ingresa por correo electrónico', icon: emailIcon.src},
-  {title: 'Continúa con Google', icon: googleIcon.src},
-  {title: 'Continúa con Facebook', icon: facebookIcon.src},
-  {title: 'Continúa con Apple', icon: appleIcon.src},
+  {title: 'Continua con Google', icon: googleIcon.src},
+  {title: 'Continua con Facebook', icon: facebookIcon.src},
+  {title: 'Continua con Apple', icon: appleIcon.src},
 ];
 
 const SocialButtons: FC = () => {
@@ -24,7 +24,9 @@ const SocialButtons: FC = () => {
             <li
               key={socialButton.title}
               className={SocialButtonStyles.buttonItem}>
-              <IconButton title={socialButton.title} icon={socialButton.icon} />
+              <IconButton icon={socialButton.icon}>
+                {socialButton.title}
+              </IconButton>
             </li>
           ))}
         </ul>

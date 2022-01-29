@@ -3,22 +3,22 @@ import {Box, Image, Text} from '@chakra-ui/react';
 
 import placeholderIcon from '../../../assets/icon/placeholderIcon.svg';
 
-interface CirclesImageProps {
+export interface CirclesImageProps {
   textImage: string;
   alt: string;
-  placeholderImage?: string;
+  imageUrl?: string;
 }
 
 const CirclesImage: FC<CirclesImageProps> = ({
   alt,
   textImage,
-  placeholderImage,
+  imageUrl,
 }) => {
   return (
     <Box align="center">
-      <Image boxSize="121px" src={placeholderImage} alt={alt} />
+      <Image boxSize="121px" src={imageUrl} alt={alt} />
 
-      <Text color="#808080" size="16px" mt="7px" mb="9px">
+      <Text color="#808080" fontSize="16px" mt="7px" mb="9px">
         {textImage}
       </Text>
     </Box>
@@ -26,7 +26,7 @@ const CirclesImage: FC<CirclesImageProps> = ({
 };
 
 CirclesImage.defaultProps = {
-  placeholderImage: placeholderIcon.src,
+  imageUrl: placeholderIcon.src,
 };
 
 export default CirclesImage;

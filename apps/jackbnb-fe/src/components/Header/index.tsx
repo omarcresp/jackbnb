@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import {MenuButton, IconButton, MenuDivider, Box} from '@chakra-ui/react';
 
 interface HeaderProps {
-  fitParent: boolean;
+  fitParent?: boolean;
 }
 
 const Header: FC<HeaderProps> = ({fitParent}) => {
@@ -12,9 +12,9 @@ const Header: FC<HeaderProps> = ({fitParent}) => {
       width={fitParent ? 'inherit' : 'unset'}
       flex-direction="row">
       <MenuButton align-self="start" w="40px">
-        {' '}
-        Weermote{' '}
+        Wermote
       </MenuButton>
+
       <MenuButton
         as={IconButton}
         bg="#3C7A1D"
@@ -22,10 +22,10 @@ const Header: FC<HeaderProps> = ({fitParent}) => {
         variant="outline"
         align-self="end"
       />
+
       <MenuDivider />
 
       <MenuButton
-        as={MenuButton}
         bg="#3C7A1D"
         variant="outline"
         align-self="end"
