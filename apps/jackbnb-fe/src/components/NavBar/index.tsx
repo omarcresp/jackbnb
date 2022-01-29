@@ -15,7 +15,7 @@ const NavBar: FC = () => {
         bg="#D9F2A5"
         w="100%"
         h="50px">
-        <Heading size="18px" ml="15px" color="#000000">
+        <Heading fontSize="18px" ml="15px" color="#000000">
           <Image width="90px" height="19px" src={logoTextBlackIcon.src} />
         </Heading>
 
