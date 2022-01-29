@@ -1,9 +1,10 @@
 import React, {FC} from 'react';
+import Image from 'next/image';
 import {Box, Flex, Heading, Img, Divider} from '@chakra-ui/react';
 
 import hamburgerButton from '../../assets/icon/hamburger-button.svg';
-// TODO: Use the png version of the icon because the actual svg version is broken
-import profileIcon from '../../assets/icon/profile-icon.png';
+import profileIcon from '../../assets/icon/profile-icon.svg';
+import logoTextBlackIcon from '../../assets/icon/logo-text-black.svg';
 
 const NavBar: FC = () => {
   return (
@@ -15,11 +16,11 @@ const NavBar: FC = () => {
         w="100%"
         h="50px">
         <Heading size="18px" ml="15px" color="#000000">
-          Brand
+          <Image width="90px" height="19px" src={logoTextBlackIcon.src} />
         </Heading>
 
         <Flex alignItems="center" justifyContent="center" mr="15px">
-          <Img boxSize="16px" src={hamburgerButton.src} />
+          <Image width="26px" height="16px" src={hamburgerButton.src} />
 
           <Box height="29.5px">
             <Divider
@@ -29,7 +30,7 @@ const NavBar: FC = () => {
             />
           </Box>
 
-          <Img boxSize="23px" src={profileIcon.src} />
+          <Image width="24px" height="24px" src={profileIcon.src} />
         </Flex>
       </Flex>
     </>

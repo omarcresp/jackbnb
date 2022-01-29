@@ -4,10 +4,9 @@ import {Button, Img, Box, Divider} from '@chakra-ui/react';
 
 interface IconButtonProps {
   icon: string;
-  title: string;
 }
 
-const IconButton: FC<IconButtonProps> = ({title, icon}) => {
+const IconButton: FC<IconButtonProps> = ({children, icon}) => {
   return (
     <>
       <Button
@@ -25,8 +24,8 @@ const IconButton: FC<IconButtonProps> = ({title, icon}) => {
         <Box height="30px">
           <Divider orientation="vertical" borderColor="#808080" mr="10px" />
         </Box>
-        
-        <span>{title}</span>
+
+        <span>{children}</span>
       </Button>
     </>
   );

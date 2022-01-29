@@ -1,7 +1,10 @@
 import React, {FC} from 'react';
+import Image from 'next/image';
 
 import Form from '../Form';
-import FormButton from '../SecondaryButton';
+import SecondaryButton from '../SecondaryButton';
+
+import logoBlack from '../../assets/icon/logo-black.svg';
 import FooterStyles from './index.module.css';
 
 const Footer: FC = () => {
@@ -11,19 +14,27 @@ const Footer: FC = () => {
 
   return (
     <div className={FooterStyles.container}>
-      <h1 className={FooterStyles.Title}> ¿Como te podemos ayudar? </h1>
+      <h3 className={FooterStyles.Title}> ¿Como te podemos ayudar? </h3>
+
       <Form />
-      <FormButton width onClick={clickForm}>
+
+      <SecondaryButton width onClick={clickForm}>
         Enviar
-      </FormButton>
-      <h1 className={FooterStyles.h1}> Colaboradores </h1>
-      <h2 className={FooterStyles.h2}> ¿quieres ser host? </h2>
-      <h2 className={FooterStyles.h2}> Propietarios </h2>
-      <h2 className={FooterStyles.h2}> Recomienda un lugar </h2>
-      <h1 className={FooterStyles.h1}> Contactanos </h1>
-      <h2 className={FooterStyles.h2}> 00-000 000 00 000 </h2>
-      <h2 className={FooterStyles.h2}> Direccion </h2>
-      <h2 className={FooterStyles.h2}> Razon social </h2>
+      </SecondaryButton>
+
+      <h4 className={FooterStyles.h4}>Colaboradores</h4>
+      <h5 className={FooterStyles.h5}>¿quieres ser host?</h5>
+      <h5 className={FooterStyles.h5}>Propietarios</h5>
+      <h5 className={FooterStyles.h5}>Recomienda un lugar</h5>
+
+      <h4 className={FooterStyles.h4}>Contactanos</h4>
+      <h5 className={FooterStyles.h5}>00-000 000 00 000</h5>
+      <h5 className={FooterStyles.h5}>Direccion</h5>
+      <h5 className={FooterStyles.h5}>Razon social</h5>
+
+      <figure className={FooterStyles.footerLogo}>
+        <Image width="164px" height="35" src={logoBlack.src} />
+      </figure>
     </div>
   );
 };
