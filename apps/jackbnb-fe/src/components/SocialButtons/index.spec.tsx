@@ -11,16 +11,16 @@ describe('<SocialButton />', () => {
 
   test('Should mount', () => {
     render(<SocialButton />);
-    expect(screen.getByText('Continúa con Google')).toBeVisible();
+    expect(screen.getByText('Continua con Google')).toBeVisible();
   });
 
   test('Should mount', () => {
     render(<SocialButton />);
-    expect(screen.getByText('Continúa con Facebook')).toBeVisible();
+    expect(screen.getByText('Continua con Facebook')).toBeVisible();
   });
 
   test('Should mount', () => {
     render(<SocialButton />);
-    expect(screen.getByText('Continúa con Apple')).toBeVisible();
+    expect(screen.getByText('Continua con Apple')).toBeVisible();
   });
 });
