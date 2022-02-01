@@ -1,10 +1,12 @@
 import React from 'react';
 import type {NextPage} from 'next';
 
+import PropertyList from '../../components/PropertyList';
+
 const UiTestPage: NextPage = () => {
   return (
     <>
-      <h1>Hello</h1>
+      <PropertyList />
     </>
   );
 };
