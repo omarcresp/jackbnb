@@ -1,16 +1,12 @@
 import React from 'react';
 import type {NextPage} from 'next';
 
-import NavBar from '../../components/NavBar';
-import SpaceType from '../../components/SpaceType';
-import Benefits from '../../components/Benefits';
+import PropertyList from '../../components/PropertyList';
 
 const UiTestPage: NextPage = () => {
   return (
     <>
-      <NavBar />
-      <SpaceType />
-      <Benefits />
+      <PropertyList />
     </>
   );
 };
