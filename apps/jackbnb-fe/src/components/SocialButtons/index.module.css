@@ -1,0 +1,12 @@
+.socialButtonContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonList{
+  list-style: none;
+}
+
+.buttonItem {
+  margin-top: 21px;
+}

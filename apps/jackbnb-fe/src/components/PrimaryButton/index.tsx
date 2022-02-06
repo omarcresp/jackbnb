@@ -6,7 +6,15 @@ interface PrimaryButtonProps {
   onClick: () => void;
 }
 
+<<<<<<< HEAD
 const PrimaryButton: FC<PrimaryButtonProps> = ({children, fitParent, onClick}) => {
+=======
+const PrimaryButton: FC<PrimaryButtonProps> = ({
+  children,
+  fitParent,
+  onClick,
+}) => {
+>>>>>>> 8096a830a517624a4ed256b961663504ad27dc28
   return (
     <Button
       bg="#58DE15"
@@ -16,7 +24,11 @@ const PrimaryButton: FC<PrimaryButtonProps> = ({children, fitParent, onClick}) =
       p="10px"
       width={fitParent ? 'inherit' : 'unset'}
       onClick={onClick}>
+<<<<<<< HEAD
       Continuar
+=======
+      {children}
+>>>>>>> 8096a830a517624a4ed256b961663504ad27dc28
     </Button>
   );
 };

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 .container {
     display: flex;
@@ -8,6 +9,17 @@
     width: 400px;
     height: 800px;
     padding: 10px;
+=======
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(248, 245, 245);
+  width: 400px;
+  height: 800px;
+  padding: 10px;
+>>>>>>> 8096a830a517624a4ed256b961663504ad27dc28
 }
 
 .Title {
@@ -18,6 +30,7 @@
   align-self: flex-start;
 }
 
+<<<<<<< HEAD
 
 .h1 {
     margin-top: 30px;
@@ -35,4 +48,19 @@
     font-size: 16px;
     align-self: flex-start;
     margin-left: 15px;
+=======
+.h1 {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: 'Cabin', sans-serif;
+  align-self: flex-start;
+  margin: 20px 5px 5px 15px;
+}
+
+.h2 {
+  color: rgb(156, 145, 145);
+  font-size: 16px;
+  align-self: flex-start;
+  margin-left: 15px;
+>>>>>>> 8096a830a517624a4ed256b961663504ad27dc28
 }
