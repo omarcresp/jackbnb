@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, {FC} from 'react';
 import {Box, Img, Text, Flex, Divider} from '@chakra-ui/react';
 
@@ -9,18 +10,20 @@ import PropertyCardStyle from './index.module.css';
 
 interface PropertyCard {
   alt: string;
-  persons: string;
+  pc_min: string;
+  pc_max: string;
   distance: string;
-  title: string;
+  name: string;
   description: string;
   location: string;
 }
 
 const PropertyCard: FC<PropertyCard> = ({
   alt,
-  persons,
+  pc_min,
+  pc_max,
   distance,
-  title,
+  name,
   description,
   location,
 }) => {
@@ -49,7 +52,9 @@ const PropertyCard: FC<PropertyCard> = ({
           width="26px"
           mr="6px"
         />
-        <Text>{persons}</Text>
+        <Text>
+          {pc_min}-{pc_max}
+        </Text>
         <Box height="32px">
           <Divider orientation="vertical" borderColor="#D9F2A5" mx="20px" />
         </Box>
@@ -70,7 +75,7 @@ const PropertyCard: FC<PropertyCard> = ({
           color="#1A1A1A"
           as="h3"
           isTruncated>
-          {title}
+          {name}
         </Box>
 
         <Text mt="5px" fontSize="16px" fontWeight="400" color="#808080">

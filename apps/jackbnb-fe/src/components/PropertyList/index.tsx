@@ -4,30 +4,36 @@ import {Flex} from '@chakra-ui/react';
 import PropertyCard from '../PropertyCard';
 import PropertyListStyle from './index.module.css';
 
-const PROPETIES = [
+const PROPERTIES = [
   {
-    alt: 'Bulding image',
-    persons: '1-5',
+    id: '1',
+    alt: 'Building image',
+    pc_min: '1',
+    pc_max: '5',
     distance: '15 km',
-    title: 'Hacienda 1',
+    name: 'Hacienda 1',
     location: 'Envigado, Antioquia',
     description:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis',
   },
   {
-    alt: 'Bulding image 2',
-    persons: '1-6',
+    id: '2',
+    alt: 'Building image 2',
+    pc_min: '1',
+    pc_max: '6',
     distance: '10 km',
-    title: 'Hacienda 2',
+    name: 'Hacienda 2',
     location: 'Envigado, Antioquia',
     description:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis',
   },
   {
-    alt: 'Bulding image 3',
-    persons: '1-4',
+    id: '3',
+    alt: 'Building image 3',
+    pc_min: '1',
+    pc_max: '4',
     distance: '20 km',
-    title: 'Hacienda 3',
+    name: 'Hacienda 3',
     location: 'Envigado, Antioquia',
     description:
       'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis',
@@ -38,13 +44,14 @@ const PropertyList: FC = () => {
   return (
     <Flex justify="center">
       <ul>
-        {PROPETIES.map((properties) => (
-          <li key={properties.title} className={PropertyListStyle.itemsList}>
+        {PROPERTIES.map((properties) => (
+          <li key={properties.id} className={PropertyListStyle.itemsList}>
             <PropertyCard
               alt={properties.alt}
-              persons={properties.persons}
+              pc_min={properties.pc_min}
+              pc_max={properties.pc_max}
               distance={properties.distance}
-              title={properties.title}
+              name={properties.name}
               location={properties.location}
               description={properties.description}
             />
