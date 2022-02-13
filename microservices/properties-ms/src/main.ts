@@ -1,17 +1,24 @@
 import { ProxyHandler } from 'aws-lambda';
-import { proxy } from 'aws-serverless-fastify';
-import { FastifyInstance } from 'fastify';
+import { proxy, createServer } from 'aws-serverless-express';
+import { eventContext } from 'aws-serverless-express/middleware';
+import { Express } from 'express';
 
-import { createServer } from '@wermote/serverless';
+import { createServer as createServerBase } from '@wermote/serverless';
 
 import { AppModule } from './app.module';
 
-let cacheServer: FastifyInstance;
+let cacheServer: Express;
 
 export const handler: ProxyHandler = async (event, context) => {
   if (!cacheServer) {
-    cacheServer = await createServer(AppModule, 'properties');
+    cacheServer = await createServerBase(AppModule, 'properties');
+    cacheServer.use(eventContext());
   }
+  const binaryMimeTypes: string[] = [];
+  const server = createServer(cacheServer, undefined, binaryMimeTypes);
+  const response = await proxy(server, event, context, 'PROMISE').promise;
 
-  return proxy(cacheServer, event, context);
+  server.close();
+
+  return response;
 };

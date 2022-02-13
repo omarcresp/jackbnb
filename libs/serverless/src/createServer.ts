@@ -1,24 +1,25 @@
 import {NestFactory} from '@nestjs/core';
 import {ValidationPipe} from '@nestjs/common';
-import {NestFastifyApplication, FastifyAdapter} from '@nestjs/platform-fastify';
+import {NestExpressApplication, ExpressAdapter} from '@nestjs/platform-express';
 
-import fastify, {FastifyInstance} from 'fastify';
-import fastifyCookie from 'fastify-cookie';
+import * as express from 'express';
+import type {Express} from 'express';
+import * as cookieParser from 'cookie-parser';
 
 import {AllExceptionsFilter} from '@wermote/exception-filter';
 
 async function createServer(
   appModule: unknown,
   appPrefix: string,
-): Promise<FastifyInstance> {
-  const instance = fastify({logger: true});
+): Promise<Express> {
+  const instance = express();
 
-  const nestApp = await NestFactory.create<NestFastifyApplication>(
+  const nestApp = await NestFactory.create<NestExpressApplication>(
     appModule,
-    new FastifyAdapter(instance),
+    new ExpressAdapter(instance),
   );
 
-  nestApp.register(fastifyCookie);
+  nestApp.use(cookieParser());
   nestApp.setGlobalPrefix(appPrefix);
   nestApp.useGlobalFilters(new AllExceptionsFilter());
   nestApp.useGlobalPipes(
