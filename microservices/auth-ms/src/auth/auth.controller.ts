@@ -8,7 +8,7 @@ import {
   Req,
   Res,
 } from '@nestjs/common';
-import { FastifyReply } from 'fastify';
+import { Response } from 'express';
 import { hashSync } from 'bcrypt';
 
 import { AuthService } from './auth.service';
@@ -36,16 +36,13 @@ export class AuthController {
   @HttpCode(205)
   @UseGuards(LocalAuthenticationGuard)
   @Post('login')
-  login(
-    @Req() req: RequestWithUser,
-    @Res() response: FastifyReply,
-  ): FastifyReply {
+  login(@Req() req: RequestWithUser, @Res() response: Response): Response {
     const { user } = req;
 
     const jwtToken = this.authService.getCookieWithJwtToken(user.id);
     const expireDate = new Date(Date.now() + 3600 * 1000 * 24 * 2);
 
-    response.setCookie('_jbt', jwtToken, {
+    response.cookie('_jbt', jwtToken, {
       httpOnly: true,
       path: '/',
       expires: expireDate,
@@ -63,8 +60,8 @@ export class AuthController {
   @HttpCode(205)
   @UseGuards(JwtAuthenticationGuard)
   @Post('logout')
-  logOut(@Res() response: FastifyReply): void {
-    response.setCookie('_jbt', '', {
+  logOut(@Res() response: Response): void {
+    response.cookie('_jbt', '', {
       httpOnly: true,
       path: '/',
       expires: new Date(),

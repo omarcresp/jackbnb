@@ -1,7 +1,7 @@
-import { FastifyRequest } from 'fastify';
+import { Request } from 'express';
 
 import { UserDocument } from '../entities/auth.entity';
 
-export interface RequestWithUser extends FastifyRequest {
+export interface RequestWithUser extends Request {
   user: UserDocument;
 }
