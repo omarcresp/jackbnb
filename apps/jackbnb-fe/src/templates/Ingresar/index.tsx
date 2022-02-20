@@ -2,7 +2,8 @@ import React from 'react';
 import InStyles from './index.module.css'
 import SocialButtons from '../../components/SocialButtons';
 
-//bueno, todo joya ahora :D
+/*bueno, todo joya ahora :D esta es la primera pagina, ok? donde figuran los hermosos botones de paola.
+asi que acordate yasmin del futuro */
 
 const Ingresar = () => {
   return(
