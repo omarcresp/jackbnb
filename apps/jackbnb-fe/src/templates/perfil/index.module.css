@@ -1,0 +1,14 @@
+.container {
+  background-color: white;
+  margin: 0;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+
+}
+
+.h1 {
+  color: gray;
+  font-size: 12px;
+  text-decoration: underline;
+}
